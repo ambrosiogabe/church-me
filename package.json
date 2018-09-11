@@ -45,6 +45,7 @@
     }, "scripts": {
       "build-css": "gulp css",
       "build": "npm run build-css",
-      "start": "node server"
+      "start": "node server",
+      "test": "node test/server.js"
     }
 }
