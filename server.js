@@ -1,18 +1,18 @@
-const http = require('http');
 const fs = require('fs');
+const express = require('express');
+const app = express();
 
-const PORT = process.env.PORT || 500;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  console.log("Doing it");
-  fs.readFile("index.html", function(err, data){
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    res.end();
-  });
-});
+app.use(express.static(__dirname + '/public'));
 
-server.listen(PORT, () => {
-  console.log(`Server running at ${PORT}/`);
+//const hostname = '127.0.0.1'; // Uncomment when testing
+const port = process.env.PORT || 3000;
+
+app.get('/', function(req, res, next) {
+  res.sendfile(__dirname + '/index.html');
+})
+
+//app.listen(port, hostname, () => { // Uncomment when testing and comment next line instead
+app.listen(port, () => {
+  console.log(`Server running at http://${process.env.HOST}:${port}/`);
 });
