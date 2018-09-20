@@ -12,13 +12,21 @@
     @include heading-font;
   }
   .navbar-brand {
-    color: $primary;
+    color: white;
     @include script-font;
     &.active,
     &:active,
     &:focus,
     &:hover {
-      color: darken($primary, 10%);
+      color: gray;
+    }
+  }
+
+  .ME_RED {
+    display: inline;
+    color: red;
+    &:hover {
+      color: darken(red, 10%);
     }
   }
   .navbar-nav {

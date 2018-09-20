@@ -30,9 +30,9 @@ header.masthead {
       @include serif-font;
     }
     .intro-heading {
-      font-size: 50px;
+      font-size: 35px;
       font-weight: 700;
-      line-height: 50px;
+      line-height: 35px;
       margin-bottom: 25px;
       @include heading-font;
     }
@@ -44,16 +44,16 @@ header.masthead {
       padding-top: 300px;
       padding-bottom: 200px;
       .intro-lead-in {
-        font-size: 40px;
+        font-size: 35px;
         font-style: italic;
-        line-height: 40px;
+        line-height: 35px;
         margin-bottom: 25px;
         @include serif-font;
       }
       .intro-heading {
-        font-size: 75px;
+        font-size: 50px;
         font-weight: 700;
-        line-height: 75px;
+        line-height: 50px;
         margin-bottom: 50px;
         @include heading-font;
       }
