@@ -1,0 +1,18 @@
+- const IMG_WIDTH = 600;
+- const IMG_HEIGHT = 400;
+
+article.church-profile
+	section.basic-info
+		h3.church-name= name
+		p #{streetName} <br/> #{city}, Tennessee #{zipCode}
+		p= denomination
+		ul
+			for x in pastors
+				li= x
+		ul
+			for x in serviceTimes
+				li= x
+	section.other-info
+		for x in description
+			p= x
+		img(src=imgSrc, alt=name, width=IMG_WIDTH, height=IMG_HEIGHT)

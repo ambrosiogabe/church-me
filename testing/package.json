@@ -1,0 +1,15 @@
+{
+  "name": "church-me",
+  "version": "1.0.0",
+  "description": "for developing/testing new features",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isaac Saffold",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
