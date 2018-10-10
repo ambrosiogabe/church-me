@@ -9,9 +9,9 @@ p {
 }
 
 a {
-  color: $primary;
+  color: darken($primary, 20%);
   &:hover {
-    color: darken($primary, 10%);
+    color: darken($primary, 30%);
   }
 }
 
@@ -95,4 +95,132 @@ img::selection {
 
 img::-moz-selection {
   background: transparent;
+}
+
+
+
+
+
+
+
+
+// login page styling
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 23% 0 0;
+  padding: 30vh 0 0;
+  margin: auto;
+}
+
+.login_form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login_form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.login_form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: $primary;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.login_form button:hover,.login_form button:active,.login_form button:focus {
+  background: darken($primary, 10%);
+}
+
+.login_page {
+  background: $gray-800; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, $gray-800, $gray-900);
+  background: -moz-linear-gradient(right, $gray-800, $gray-900);
+  background: -o-linear-gradient(right, $gray-800, $gray-900);
+  background: linear-gradient(to left, $gray-800, $gray-900);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.login_header {
+  color: $gray-800;
+  display: inline-block;
+  padding-bottom: 20%;
+}
+
+.login_header_2 {
+  color: $login_red;
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+// maps page styling
+.maps_page {
+  min-height: 500px;
+  min-height: 100vh;
+}
+
+.dark-background .nav-link, .dark-background .navbar-brand{
+  color: $gray-900 !important;
+}
+
+.left_search_bar {
+  padding-right: 0;
+  border-right: 1px solid #c6c6c6;
+}
+
+.map-search-header {
+  background-color: #f4f4f4;
+  font-size: 1em;
+  color: black;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.map-search-header p {
+  padding-top: 1%;
+  padding-left: 10%;
+  color: #4f4f4f;
+}
+
+#mainNav.dark-background {
+  padding: 0;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+#maps-section {
+  margin: 0;
+  padding: 0;
 }
