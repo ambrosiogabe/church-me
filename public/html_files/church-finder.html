@@ -58,17 +58,40 @@
     <!-- google implementation and sidebar -->
     <section id="maps-section">
       <div class="row maps_page">
-        <div class="left_search_bar col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="left_search_bar col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="map-search-header">
             <p>Search churches near Nashville</p>
+          </div>
+
+
+          <div class="church-entry" onmouseenter="mouseEnter(this)" onmouseleave="leaving(this)" id="nfb">
+            <div class="data">
+              <p class="church-entry-title" id="church-name">Nashville First Baptist</p>
+              <p class="church-entry-address">108 7th Ave S, Nashville, TN 37203</p>
+            </div>
+
+            <div class="image">
+              <img class="church-entry-image" src="img/churches/nashville_first_baptist_icon.jpg"></img>
+            </div>
+          </div>
+
+
+
+          <div class="church-entry" onmouseenter="mouseEnter(this)" onmouseleave="leaving(this)" id="ghc">
+            <div class="data">
+              <p class="church-entry-title" id="church-name">Grassland Heights Church</p>
+              <p class="church-entry-address">2316 Hillsboro Rd, Franklin, TN 37069</p>
+            </div>
+
+            <div class="image">
+              <img class="church-entry-image" src="img/churches/grassland_heights_baptist_icon.jpg"></img>
+            </div>
           </div>
         </div>
 
 
 
-
-
-        <div class="map col-lg-8 col-md-8 col-sm-8 col-xs-8" id="google-map">
+        <div class="map col-lg-8 col-md-8 col-sm-12 col-xs-12" id="google-map">
         </div>
       </div>
     </section>
