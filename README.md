@@ -66,6 +66,10 @@ This means that the site has built the Sass located in the scss/ directory, and 
 If all has gone well, then you can make changes to the code as needed and test it locally.
 
 # Deployment
-To deploy...
+The current method of deployment is via Heroku. The basic method of deploying the app is quite simple. You login to the Heroku website [here](https://id.heroku.com/login) and then put in the admin name and password for ChurchMe. Then you go to the church-me app and click on it. Once inside you will be presented with an image like this:
+
+!(this)[/deployImage.jpg]
+
+Click into the deploy tab at the top of the page. The current deployment method is through Github as the flow diagram shows. It says it is connected to ambrosiogabe/church-me currently, and offers a disconnect. If you wish to disconnect it, press disconnect and then you can reconnect to a different repository. You then enable automatic deploys, and every time you push to Github, Heroku will serve whatever files are located in the repository.
 
 
