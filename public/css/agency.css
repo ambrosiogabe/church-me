@@ -226,6 +226,7 @@ img::-moz-selection {
 
 .church-entry:hover {
   background-color: #f7f7f7;
+  cursor: pointer;
 }
 
 .data {

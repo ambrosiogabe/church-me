@@ -26,8 +26,16 @@ function myMap() {
         title: "Grassland Heights Church"
       });
 
+      var marker3 = new google.maps.Marker({
+        position: new google.maps.LatLng(36.063723, -86.772885),
+        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+        map: map,
+        title: "Brentwood Hills Church of Christ"
+      });
+
     markers[0] = marker1;
     markers[1] = marker2;
+    markers[2] = marker3;
 }
 
 function mouseEnter(churchEntry) {
@@ -49,6 +57,15 @@ function mouseEnter(churchEntry) {
     });
 
     markers[1] = marker;
+  } else if (churchEntry.id == "bhc") {
+    markers[2].setMap(null);
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(36.063723, -86.772885),
+      map: map,
+      title: "Brentwood Hills Church of Christ"
+    });
+
+    markers[2] = marker;
   }
 }
 
@@ -73,5 +90,15 @@ function leaving(churchEntry) {
     });
 
     markers[1] = marker;
+  } else if (churchEntry.id == "bhc") {
+    markers[2].setMap(null);
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(36.063723, -86.772885),
+      icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+      map: map,
+      title: "Brentwood Hills Church of Christ"
+    });
+
+    markers[2] = marker;
   }
 }
