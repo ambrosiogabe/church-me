@@ -9,7 +9,17 @@ app.use(express.static(__dirname + '/public'));
 const port = process.env.PORT || 3000;
 
 app.get('/', function(req, res, next) {
-  res.sendfile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/login', function(req, res, next) {
+  console.log("getting login");
+  res.sendFile(__dirname + '/public/html_files/login.html');
+});
+
+app.get('/church-finder', function(req, res, next) {
+  console.log("getting church-finder");
+  res.sendFile(__dirname + '/public/html_files/church-finder.html');
 })
 
 //app.listen(port, hostname, () => { // Uncomment when testing and comment next line instead

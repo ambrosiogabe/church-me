@@ -38,13 +38,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Home</a>
+              <a class="nav-link js-scroll-trigger" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Church Finder</a>
+              <a class="nav-link js-scroll-trigger" href="/church-finder">Church Finder</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="/">Contact</a>
             </li>
           </ul>
         </div>
@@ -58,9 +58,9 @@
           <div class="intro-text">
             <div class="intro-lead-in">Church-Me</div>
             <div class="intro-heading text-uppercase">Nashville let us help you find a church!</div>
-            <form action="#">
+            <form action="">
               <div class="main-search-bar-div"><input type="text" class="input-group main-search-bar"></input></div>
-              <input type="submit" class="input-group-btn btn btn-primary btn-xl text-uppercase" value="Submit ZIP Code"></input>
+              <input class="input-group-btn btn btn-primary btn-xl text-uppercase" value="Submit ZIP Code" onclick="location.href = '/church-finder';"></input>
             </form>
           </div>
         </div>
@@ -75,6 +75,12 @@
             <h2 class="section-heading text-uppercase">Featured Churches of the Month</h2>
           </div>
         </div>
+
+
+
+
+
+
         <div class="row">
           <div class="col-md-6 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
@@ -90,6 +96,8 @@
               <p class="text-muted">Nashville, TN</p>
             </div>
           </div>
+
+
           <div class="col-md-6 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
               <div class="portfolio-hover">
@@ -104,7 +112,29 @@
               <p class="text-muted">Nashville, TN</p>
             </div>
           </div>
+
+
+          <div class="col-md-6 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/churches/brentwood_hills_church_of_christ.jpg" alt="">
+            </a>
+          <div class="portfolio-caption">
+            <h4>Grassland Heights Church</h4>
+            <p class="text-muted">Nashville, TN</p>
+          </div>
         </div>
+
+
+
+
+
+
+
       </div>
     </section>
 
@@ -187,7 +217,7 @@
                 <a href="#">Terms of Use</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Admin</a>
+                <a href="/login">Admin</a>
               </li>
             </ul>
           </div>
@@ -212,7 +242,7 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Nashville First Baptist Church</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur. (<i>subheading</i>)</p>
+                  <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur. (<i>subheading</i>)</p>-->
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
 
                   <iframe src="https://player.vimeo.com/video/267681835" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -248,7 +278,7 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Grassland Heights Church</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur (<i>subheading</i>).</p>
+                  <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur (<i>subheading</i>).</p>-->
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
 
                   <iframe src="https://player.vimeo.com/video/273120550" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
