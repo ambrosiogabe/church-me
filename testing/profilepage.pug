@@ -1,0 +1,27 @@
+doctype html
+
+<html lang="en">
+
+head
+	title Church-Me
+	meta(charset="utf-8")
+	meta(name="viewport", content="width=device-width, initial-scale=1")
+	
+body
+	nav
+		//- inherited or included
+	header
+		h1= churchName
+	main
+		section#intro
+			img&attributes(profilePicAttrs)
+			p= customDescription
+		section#events
+			//- TODO: Implement mixin that displays all events for a given day, as well as one for an event listing.
+			for evtBlock in byDay
+				+events-by-day(evtBlock)
+		section#media
+			//- TODO
+	footer
+		//- inherited or included
+</html>
