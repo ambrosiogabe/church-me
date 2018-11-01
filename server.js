@@ -1,6 +1,23 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
+/*const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl:true,
+});
+
+client.connect();
+
+client.query('SELECT * FROM CHURCH;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+*/
 
 
 app.use(express.static(__dirname + '/public'));
@@ -9,6 +26,7 @@ app.use(express.static(__dirname + '/public'));
 const port = process.env.PORT || 3000;
 
 app.get('/', function(req, res, next) {
+  console.log("Serving index.pug");
   res.sendFile(__dirname + '/index.html');
 });
 
@@ -22,7 +40,6 @@ app.get('/church-finder', function(req, res, next) {
   res.sendFile(__dirname + '/public/html_files/church-finder.html');
 })
 
-//app.listen(port, hostname, () => { // Uncomment when testing and comment next line instead
 app.listen(port, () => {
-  console.log(`Server running at http://${process.env.HOST}:${port}/`);
+  console.log(`Server now running at http://${process.env.HOST}:${port}/`);
 });
