@@ -16,6 +16,7 @@ featured_churches = []
 client.query('SELECT * FROM church;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
+    console.log("Adding a church to all_churches");
     all_churches.push(row);
   }
 });
@@ -23,6 +24,7 @@ client.query('SELECT * FROM church;', (err, res) => {
 client.query('SELECT * FROM featured_churches;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
+    console.log("Adding a church to featured_churches");
     featured_churches.push(row.church_id);
   }
   client.end();
