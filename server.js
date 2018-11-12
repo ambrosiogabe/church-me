@@ -35,7 +35,7 @@ app.get('/testing', function(req, res, next) {
   client.connect();
 
   all_churches = []
-  featured_churches = []
+  featured = []
 
   client.query('SELECT * FROM church;', (err, res) => {
     if (err) throw err;
@@ -49,19 +49,17 @@ app.get('/testing', function(req, res, next) {
     if (err) throw err;
     for (let row of res.rows) {
       console.log("Adding a church to featured_churches");
-      featured_churches.push(row.church_id);
+      featured.push(row.church_id);
     }
     client.end();
   });
 
-  for(let church in all_churches) {
-    console.log("Logging a church");
-    console.log(church.church_id);
-    console.log("Church is in featured " + (church.church_id in featured_churches));
-  }
-
   console.log("Testing");
-  res.render("index");
+  res.render("index", {
+    churches: all_churches,
+    featured_churches: featured,
+    test_var: "I am testing this  variable"
+  });
 });
 
 

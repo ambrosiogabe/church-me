@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    title Church-Me | Find a church now
+    title #{test_var} Church-Me | Find a church now
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     meta(name="description" content="")
@@ -65,15 +65,16 @@ html(lang="en")
         // # Surround this with a for loop and iterate through all churches
         // # in the database and dynamically fill content
         // # --------------------------------------------------------------
-        div(class="col-md-6 col-sm-6 portfolio-item")
-          a(class="portfolio-link" data-toggle="modal" href="#portfolioModal1")
-            div(class="portfolio-hover")
-              div(class="portfolio-hover-content")
-                i(class="fas fa-plus fa-3x")
-            img(class="img-fluid" src="img/churches/nashville_first_baptist.jpg")
-          div(class="portfolio-caption")
-            h4 Nashville First Baptist Church
-            p(class="text-muted") Nashville, TN
+        for church in featured_churches
+          div(class="col-md-6 col-sm-6 portfolio-item")
+            a(class="portfolio-link" data-toggle="modal" href="#portfolioModal1")
+              div(class="portfolio-hover")
+                div(class="portfolio-hover-content")
+                  i(class="fas fa-plus fa-3x")
+              img(class="img-fluid" src="img/churches/nashville_first_baptist.jpg")
+            div(class="portfolio-caption")
+              h4 Nashville First Baptist Church
+              p(class="text-muted") Nashville, TN
 
 
 
