@@ -49,7 +49,9 @@ app.get('/testing', function(req, res, next) {
     if (err) throw err;
     for (let row of res.rows) {
       console.log("Adding a church to featured_churches");
+      console.log(row.church_id);
       featured.push(row.church_id);
+      console.log(featured);
     }
     client.end();
   });
