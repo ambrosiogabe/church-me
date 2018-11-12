@@ -53,7 +53,6 @@ app.get('/testing', function(req, res, next) {
       featured.push(row.church_id);
       console.log(featured);
     }
-    client.end();
   });
 
   console.log("Testing");
@@ -62,6 +61,7 @@ app.get('/testing', function(req, res, next) {
     featured_churches: featured,
     test_var: "I am testing this  variable"
   });
+  client.end();
 });
 
 
