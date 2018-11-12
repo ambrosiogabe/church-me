@@ -10,13 +10,30 @@ const client = new Client({
 
 client.connect();
 
+all_churches = []
+featured_churches = []
+
 client.query('SELECT * from church;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-    console.log(JSON.stringify(row));
+    all_churches.append(row);
   }
   client.end();
 });
+
+client.query('SELECT * FROM featured_churches;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    featured_churches.append(row.church_id);
+  }
+  client.end();
+});
+
+for(let church in all_churches) {
+  if (church.church_id in featured_churches) {
+    console.log(church);
+  }
+}
 
 
 app.use(express.static(__dirname + '/public'));
