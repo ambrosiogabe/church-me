@@ -1,23 +1,22 @@
 const fs = require('fs');
 const express = require('express');
 const app = express();
-/*const { Client } = require('pg');
+const { Client } = require('pg');
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl:true,
+  ssl: true,
 });
 
 client.connect();
 
-client.query('SELECT * FROM CHURCH;', (err, res) => {
+client.query('SELECT * from church;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
   }
   client.end();
 });
-*/
 
 
 app.use(express.static(__dirname + '/public'));
@@ -26,8 +25,13 @@ app.use(express.static(__dirname + '/public'));
 const port = process.env.PORT || 3000;
 
 app.get('/', function(req, res, next) {
-  console.log("Serving index.pug");
+  console.log("Serving index page");
   res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/testing', function(req, res, next) {
+  console.log("Testing");
+  res.sendFile(__dirname + '/pug/new_index.html');
 });
 
 app.get('/login', function(req, res, next) {
