@@ -13,15 +13,14 @@ client.connect();
 all_churches = []
 featured_churches = []
 
-client.query('SELECT * from church;', (err, res) => {
+client.query('SELECT * FROM church;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     all_churches.push(row);
   }
-  client.end();
 });
 
-client.query('SELECT * FROM featured_church;', (err, res) => {
+client.query('SELECT * FROM featured_churches;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     featured_churches.push(row.church_id);
