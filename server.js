@@ -29,9 +29,8 @@ client.query('SELECT * FROM featured_churches;', (err, res) => {
 });
 
 for(let church in all_churches) {
-  if (church.church_id in featured_churches) {
-    console.log(church);
-  }
+  console.log(church.church_id);
+  console.log("Church is in featured " + (church.church_id in featured_churches));
 }
 
 
