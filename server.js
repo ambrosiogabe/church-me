@@ -14,6 +14,35 @@ app.use(express.static(__dirname + '/public'));
 const port = process.env.PORT || 3000;
 
 
+// Initialize client connection for database queries
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+all_churches = []
+featured = []
+
+client.connect();
+client.query('SELECT * FROM church;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log("Adding a church to all_churches");
+    all_churches.push(row);
+  }
+});
+
+client.query('SELECT * FROM featured_churches;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log("Adding a church to featured_churches");
+    console.log(row.church_id);
+    featured.push(row.church_id);
+    console.log(featured);
+  }
+});
+
+client.end();
 
 // Declare the 'controllers'
 
@@ -26,34 +55,6 @@ app.get('/', function(req, res, next) {
 
 // testing
 app.get('/testing', function(req, res, next) {
-  // Initialize client connection for database queries
-  const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  });
-  
-  client.connect();
-
-  all_churches = []
-  featured = []
-
-  client.query('SELECT * FROM church;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      console.log("Adding a church to all_churches");
-      all_churches.push(row);
-    }
-  });
-
-  client.query('SELECT * FROM featured_churches;', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      console.log("Adding a church to featured_churches");
-      console.log(row.church_id);
-      featured.push(row.church_id);
-      console.log(featured);
-    }
-  });
 
   console.log("Testing");
   res.render("index", {
@@ -61,7 +62,6 @@ app.get('/testing', function(req, res, next) {
     featured_churches: featured,
     test_var: "I am testing this  variable"
   });
-  client.end();
 });
 
 
