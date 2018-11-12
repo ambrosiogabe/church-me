@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const { Client } = require('pg');
+var path = require('path');
 
 // Initialize client connection for database queries
 const client = new Client({
