@@ -3,12 +3,6 @@ const express = require('express');
 const { Client } = require('pg');
 var path = require('path');
 
-// Initialize client connection for database queries
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
-
 // Create app using express
 // Also set it to 'know' it is using pug and find where the assets are stored
 const app = express();
@@ -32,6 +26,12 @@ app.get('/', function(req, res, next) {
 
 // testing
 app.get('/testing', function(req, res, next) {
+  // Initialize client connection for database queries
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
+  
   client.connect();
 
   all_churches = []
