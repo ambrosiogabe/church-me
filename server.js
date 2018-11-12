@@ -31,7 +31,7 @@ app.get('/', function(req, res, next) {
 
 app.get('/testing', function(req, res, next) {
   console.log("Testing");
-  res.sendFile(__dirname + '/pug/new_index.html');
+  res.sendFile(__dirname + '/public/pug/new_index.html');
 });
 
 app.get('/login', function(req, res, next) {
