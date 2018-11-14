@@ -13,8 +13,8 @@ app.use(express.static(__dirname + '/public'));
 // Use heroku's supplied port, default to 3000 for local running
 const port = process.env.PORT || 3000;
 
-pg.defaults.ssl = true;
-pg.connect(process.env.DATABASE_URL, function(err, client) {
+Client.defaults.ssl = true;
+Client.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
 
