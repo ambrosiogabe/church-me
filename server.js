@@ -13,9 +13,21 @@ app.use(express.static(__dirname + '/public'));
 // Use heroku's supplied port, default to 3000 for local running
 const port = process.env.PORT || 3000;
 
+pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+
+  client
+    .query('SELECT table_schema,table_name FROM information_schema.tables;')
+    .on('row', function(row) {
+      console.log(JSON.stringify(row));
+    });
+});
+
 
 // Initialize client connection for database queries
-const client = new Client({
+/*const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
@@ -45,7 +57,7 @@ client.query('SELECT * FROM featured_churches;', (err, res) => {
   }
 });
 
-client.end();
+client.end();*/
 
 // Declare the 'controllers'
 
