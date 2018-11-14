@@ -22,15 +22,18 @@ const client = new Client({
 
 all_churches = []
 featured = []
-/*
+
 client.connect();
 client.query('SELECT * FROM church;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-    console.log("Adding a church to all_churches");
+    console.log(row);
     all_churches.push(row);
+    console.log(all_churches);
   }
 });
+
+console.log(all_churches);
 
 client.query('SELECT * FROM featured_churches;', (err, res) => {
   if (err) throw err;
@@ -42,7 +45,7 @@ client.query('SELECT * FROM featured_churches;', (err, res) => {
   }
 });
 
-client.end();*/
+client.end();
 
 // Declare the 'controllers'
 

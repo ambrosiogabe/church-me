@@ -1,318 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
+<div id="wrapper">
 
-  <head>
+<div class="grid">
+  <span class="server"></span>
+  <span class="server"></span>
+  <span class="server"></span>
+  <span class="server"></span>
+  <span class="server"></span>
+</div>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<div class="content">
+  <h1>Currently performing maintenance.</h1>
+  <p>We are sorry for the inconvenience. Please try again later.</p>
+</div>
 
-    <title>Church-Me | Find a church now</title>
+</div>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+html {font-size: 18px;}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: 0 20px;
+}
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+#wrapper {
+  width: 410px;
+  height: 350px;
+  margin: 0 auto;
 
-    <!-- Custom styles for this template -->
-    <link href="css/agency.css" rel="stylesheet">
-
-  </head>
-
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Church-<p class="ME_RED">Me</p>.com</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/church-finder">Church Finder</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="masthead">
-      <div class="overlay">
-        <div class="container">
-          <div class="intro-text">
-            <div class="intro-lead-in">Church-Me</div>
-            <div class="intro-heading text-uppercase">Nashville let us help you find a church!</div>
-            <form action="">
-              <div class="main-search-bar-div"><input type="text" class="input-group main-search-bar"></input></div>
-              <input class="input-group-btn btn btn-primary btn-xl text-uppercase" value="Submit ZIP Code" onclick="location.href = '/church-finder';"></input>
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Portfolio Grid -->
-    <section class="bg-light" id="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Featured Churches of the Month</h2>
-          </div>
-        </div>
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -175px;
+  margin-left: -205px;
+}
 
 
+.content {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 1.5em;
+  color: #000;
+}
+
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+  line-height: 1em;
+  font-weight: 300;
+  color: #333;
+}
+
+/*
+Server by @chrisburton
+*/
+
+.grid {
+  max-width: 175px;
+  height: 200px;
+  background: #222;
+  margin: 0 auto;
+  padding: 1em 0;
+  border-radius: 3px;
+}
 
 
+.grid .server {
+  display: block;
+  max-width: 68%;
+  height: 20px;
+  background: rgba(255,255,255,.15);
+  box-shadow: 0 0 0 1px black inset;
+  margin: 10px 0 20px 30px;
+}
+
+.grid .server:before {
+  content: "";
+  position: relative;
+  top: 7px;
+  left: -18px;
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: green;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin-top: 7px;
+}
+
+/* Animation */
+
+@-webkit-keyframes pulse {
+  0% {background: rgba(255,255,255,.15);}
+  100% {background: #ae1508;}
+}
+
+.grid .server:nth-child(3):before {
+  background: rgba(255,255,255,.15);
+  -webkit-animation: pulse .5s infinite alternate;
+}
+
+@-webkit-keyframes pulse_three {
+  0% {background: rgba(255,255,255,.15);}
+  100% {background: #d2710a;}
+}
+
+.grid .server:nth-child(5):before {
+  background: rgba(255,255,255,.15);
+  -webkit-animation: pulse_three .7s infinite alternate;
+}
+
+@-webkit-keyframes pulse_two {
+  0% {background: rgba(255,255,255,.15);}
+  100% {background: #9da506;}
+}
+.grid .server:nth-child(1):before {
+  background: rgba(255,255,255,.15);
+  -webkit-animation: pulse_two .1s infinite alternate;
+}
+.grid .server:nth-child(2):before {
+  background: rgba(255,255,255,.15);
+  -webkit-animation: pulse_two .175s infinite alternate;
+}
+.grid .server:nth-child(4):before {
+  background: rgba(255,255,255,.15);
+  -webkit-animation: pulse_two .1s infinite alternate;
+}
 
 
-        <div class="row">
-          <div class="col-md-6 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/churches/nashville_first_baptist.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Nashville First Baptist Church</h4>
-              <p class="text-muted">Nashville, TN</p>
-            </div>
-          </div>
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    html {font-size: 12px;}
+}
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    html {font-size: 14px;}
+}
 
 
-          <div class="col-md-6 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/churches/grassland_heights_baptist.jpg" alt="">
-            </a>
-            <div class="portfolio-caption">
-              <h4>Grassland Heights Church</h4>
-              <p class="text-muted">Nashville, TN</p>
-            </div>
-          </div>
-
-
-          <div class="col-md-6 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img class="img-fluid" src="img/churches/brentwood_hills_church_of_christ.jpg" alt="">
-            </a>
-          <div class="portfolio-caption">
-            <h4>Brentwood Hills Church of Christ</h4>
-            <p class="text-muted">Nashville, TN</p>
-          </div>
-        </div>
-
-
-
-
-
-
-
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                    <p class="help-block text-danger"></p>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="col-lg-12 text-center">
-                  <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright" id="copyright">Copyright &copy; Church-Me 2018<script>var span = document.getElementById('copyright'); var year = (new Date()).getFullYear(); if(year != 2018) span.innerHTML += "-" + (new Date()).getFullYear();</script></span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="/login">Admin</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Portfolio Modals -->
-
-    <!-- Modal 1 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Nashville First Baptist Church</h2>
-                  <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur. (<i>subheading</i>)</p>-->
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-
-                  <iframe src="https://player.vimeo.com/video/267681835" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                  <p>
-                    <a href="https://vimeo.com/267681835">Nashville First Baptist Church</a>
-                    from <a href="https://vimeo.com/user8734129">Lighthouse1232</a> on
-                    <a href="https://vimeo.com">Vimeo</a>.
-                  </p>
-
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 2 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Grassland Heights Church</h2>
-                  <!--<p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur (<i>subheading</i>).</p>-->
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-
-                  <iframe src="https://player.vimeo.com/video/273120550" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                  <p>
-                    <a href="https://vimeo.com/273120550">Nashville Grassland Heights Church</a>
-                    from <a href="https://vimeo.com/user8734129">Lighthouse1232</a> on
-                    <a href="https://vimeo.com">Vimeo</a>.
-                  </p>
-
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
-
-  </body>
-
-</html>
+</style>
