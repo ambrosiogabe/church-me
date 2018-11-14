@@ -28,15 +28,14 @@ client.query('SELECT * from church;', (err, res) => {
     all_churches.push(row);
     console.log(JSON.stringify(row));
   }
+});
 
-  client.query('SELECT * from featured_churches', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      featured.push(row.church_id);
-      console.log(JSON.stringify(row));
-    }
-    client.end();
-  });
+client.query('SELECT * from featured_churches', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    featured.push(row.church_id);
+    console.log(JSON.stringify(row));
+  }
   client.end();
 });
 
