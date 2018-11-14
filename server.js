@@ -37,6 +37,7 @@ client.query('SELECT * from featured_churches', (err, res) => {
     for (church in all_churches) {
       if (church.church_id = church_id) {
         featured.push(church);
+        console.log(featured);
         break;
       }
     }
