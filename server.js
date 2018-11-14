@@ -56,8 +56,8 @@ app.get('/', function(req, res, next) {
 
 // testing
 app.get('/testing', function(req, res, next) {
-
-  console.log("Testing");
+  console.log("Featured Churches");
+  console.log(featured);
   res.render("index", {
     featured_churches: featured
   });
