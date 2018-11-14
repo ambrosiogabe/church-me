@@ -35,6 +35,7 @@ client.query('SELECT * from featured_churches', (err, res) => {
   for (let row of res.rows) {
     var church_id = row.church_id;
     for (church in all_churches) {
+      console.log("Current row: " + church_id + " Church Id: " + church.church_id);
       if (church.church_id == church_id) {
         featured.push(church);
         console.log(featured);
