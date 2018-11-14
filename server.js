@@ -13,12 +13,6 @@ app.use(express.static(__dirname + '/public'));
 // Use heroku's supplied port, default to 3000 for local running
 const port = process.env.PORT || 3000;
 
-// Initialize client connection for database queries
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: false
-});
-
 all_churches = []
 featured = []
 const client = new Client({
