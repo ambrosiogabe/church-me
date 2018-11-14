@@ -36,7 +36,7 @@ client.query('SELECT * from featured_churches', (err, res) => {
     var church_id = row.church_id;
     for (church in all_churches) {
       if (church.church_id = church_id) {
-        featured_churches.push(church);
+        featured.push(church);
         break;
       }
     }
