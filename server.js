@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 // Initialize client connection for database queries
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: true,
+  ssl: false
 });
 
 all_churches = []
