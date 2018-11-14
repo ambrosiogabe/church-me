@@ -33,7 +33,13 @@ client.query('SELECT * from church;', (err, res) => {
 client.query('SELECT * from featured_churches', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-    featured.push(row.church_id);
+    var church_id = row.church_id;
+    for (church in all_churches) {
+      if (church.church_id = church_id) {
+        featured_churches.push(church);
+        break;
+      }
+    }
     console.log(JSON.stringify(row));
   }
   client.end();
@@ -53,9 +59,7 @@ app.get('/testing', function(req, res, next) {
 
   console.log("Testing");
   res.render("index", {
-    churches: all_churches,
-    featured_churches: featured,
-    test_var: "I am testing this  variable"
+    featured_churches: featured
   });
 });
 
