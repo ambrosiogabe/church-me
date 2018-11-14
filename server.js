@@ -21,7 +21,22 @@ const client = new Client({
 
 all_churches = []
 featured = []
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
 
+client.connect();
+
+client.query('SELECT * from church;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+/*
 client.connect();
 client.query('SELECT * FROM church;', (err, res) => {
   if (err) throw err;
@@ -44,7 +59,7 @@ client.query('SELECT * FROM featured_churches;', (err, res) => {
   }
 });
 
-client.end();
+client.end();*/
 
 // Declare the 'controllers'
 
