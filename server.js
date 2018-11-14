@@ -25,6 +25,7 @@ client.connect();
 client.query('SELECT * from church;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
+    all_churches.add(row);
     console.log(JSON.stringify(row));
   }
   client.end();
