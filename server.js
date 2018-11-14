@@ -31,30 +31,16 @@ client.query('SELECT * from church;', (err, res) => {
   client.end();
 });
 
-/*
 client.connect();
-client.query('SELECT * FROM church;', (err, res) => {
+
+client.query('SELECT * from featured_churches;', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-    console.log(row);
-    all_churches.push(row);
-    console.log(all_churches);
-  }
-});
-
-console.log(all_churches);
-
-client.query('SELECT * FROM featured_churches;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log("Adding a church to featured_churches");
-    console.log(row.church_id);
     featured.push(row.church_id);
-    console.log(featured);
+    console.log(JSON.stringify(row));
   }
+  client.end();
 });
-
-client.end();*/
 
 // Declare the 'controllers'
 
