@@ -35,6 +35,26 @@ app.get('/', function(req, web_res, next) {
 });
 
 
+// admin control page
+app.get('/edit_churches', function(req, web_res, next) {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+
+  client.connect();
+
+  client.query('select * from church;', (err, res) => {
+    if(err) throw err;
+    web_res.render("edit_churches", {
+      churches: res.rows
+    });
+
+    client.end();
+  });
+});
+
+
 // login
 app.get('/login', function(req, res, next) {
   console.log("getting login");
