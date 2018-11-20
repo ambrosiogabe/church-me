@@ -66,7 +66,7 @@ app.get('/edit/church/:id', function(req, web_res, next) {
   client.query(query_string, (err, res) => {
     if(err) throw err;
     web_res.render("church_form", {
-      church: res.rows
+      church: res.rows[0]
     });
 
     client.end();
