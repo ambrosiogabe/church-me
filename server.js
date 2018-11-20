@@ -54,6 +54,25 @@ app.get('/edit_churches', function(req, web_res, next) {
   });
 });
 
+app.get('/edit/church/:id', function(req, web_res, next) {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+  var query_string = 'select * from church where church_id = ' + req.params.id;
+
+  client.connect();
+
+  client.query(query_string, (err, res) => {
+    if(err) throw err;
+    web_res.render("church_form", {
+      church: res.rows
+    });
+
+    client.end();
+  });
+});
+
 
 // login
 app.get('/login', function(req, res, next) {

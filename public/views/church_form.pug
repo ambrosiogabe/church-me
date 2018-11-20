@@ -64,18 +64,31 @@
 
 
         div(class="row")
-
-          // Featured churches
-          for church in churches
-            div(class="col-md-6 col-sm-6 portfolio-item")
-              a(class="portfolio-link" href="edit/church/" + church.church_id)
-                div(class="portfolio-hover")
-                  div(class="portfolio-hover-content")
-                    i(class="fas fa-plus fa-3x")
-                img(class="img-fluid" src=church.image_path)
-              div(class="portfolio-caption")
-                h4=church.church_name
-                p(class="text-muted")="Edit me"
+          form(action="#")
+            label="Name: "
+            input(type="text" value=church.church_name)
+            
+            label="State: "
+            input(type="text" value=church.church_state)
+            
+            label="City: "
+            input(type="text" value=church.church_city)
+            
+            label="Zip: "
+            input(type="text" value=church.church_zip)
+            
+            label="GPS Longitude: "
+            input(type="text" value=church.gps_long)
+            
+            label="GPS Latitude: "
+            input(type="text" value=church.gps_lat)
+            
+            label="Video Link: "
+            input(type="text" value=church.video_link)
+            
+            label="Image Path: "
+            input(type="text" value=church.image_path)
+            input(type="submit")
                 
                 
     // Footer
