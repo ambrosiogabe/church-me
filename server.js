@@ -36,8 +36,6 @@ app.get('/testing', function(req, res, next) {
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
     }
-    console.log("Featured Churches");
-    console.log(featured);
     res.render("index", {
       featured_churches: res.rows
     });
