@@ -33,9 +33,6 @@ app.get('/testing', function(req, web_res, next) {
 
   client.query('select * from church where (church.church_id in (select church_id from featured_churches));', (err, res) => {
     if (err) throw err;
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-    }
     web_res.render("index", {
       featured_churches: res.rows
     });
