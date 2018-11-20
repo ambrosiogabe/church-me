@@ -19,6 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 
     <!-- Custom styles for this template -->
     <link href="/css/agency.css" rel="stylesheet">
@@ -58,37 +61,59 @@
     // Portfolio-Grid
     section(class="bg-light" id="portfolio")
       div(class="container")
-        div(class="row")
-          div(class="col-lg-12 text-center")
-            h2(class="section-heading text-uppercase") You can edit any of the churches listed below
-
-
-        div(class="row")
-          form(action="#")
-            label="Name: "
-            input(type="text" value=church.church_name)
+        div(class="contact1")
+          div(class="container-contact1")
+            div(class="contact1-pic js-tilt" data-tilt)
+              img(src="/images/img-01.png" alt="IMG")
+              
+            form(action="#" class="contact1-form validate-form")
+              span(class="contact1-form-title")="You are editing " + church.church_name
             
-            label="State: "
-            input(type="text" value=church.church_state)
-            
-            label="City: "
-            input(type="text" value=church.church_city)
-            
-            label="Zip: "
-            input(type="text" value=church.church_zip)
-            
-            label="GPS Longitude: "
-            input(type="text" value=church.gps_long)
-            
-            label="GPS Latitude: "
-            input(type="text" value=church.gps_lat)
-            
-            label="Video Link: "
-            input(type="text" value=church.video_link)
-            
-            label="Image Path: "
-            input(type="text" value=church.image_path)
-            input(type="submit")
+              div(class="wrap-input1 validate-input" data-validate="Church name is required")
+                label="Name: "
+                input(type="text" value=church.church_name placeholder="Church Name")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1 validate-input" data-validate="Church state is required")
+                label="State: "
+                input(type="text" value=church.church_state placeholder="State")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1 validate-input" data-validate="Church city is required")
+                label="City: "
+                input(type="text" value=church.church_city placeholder="City")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1 validate-input" data-validate="Church zip is required")
+                label="Zip: "
+                input(type="text" value=church.church_zip placeholder="Zip")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1 validate-input" data-validate="GPS longitude is required")
+                label="GPS Longitude: "
+                input(type="text" value=church.gps_long placeholder="GPS Longitude")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1 validate-input" data-validate="GPS latitude is required")
+                label="GPS Latitude: "
+                input(type="text" value=church.gps_lat placeholder="GPS Latitude")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1")
+                label="Video Link: "
+                input(type="text" value=church.video_link placeholder="Video link")
+                span(class="shadow-input1")
+              
+              div(class="wrap-input1 validate-input" data-validate="Church image is required")
+                label="Image Path: "
+                input(type="text" value=church.image_path placeholder="Image path")
+                span(class="shadow-input1")
+              
+              div(class="container-contact1-form-btn")
+                button(class="contact1-form-btn")
+                  span="Submit Edits"
+                  input(type="submit" value="")
+                  i(class="fa fa-long-arrow-right" aria-hidden="true")
                 
                 
     // Footer
