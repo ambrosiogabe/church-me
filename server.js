@@ -16,14 +16,7 @@ const port = process.env.PORT || 3000;
 // Declare the 'controllers'
 
 // index
-app.get('/', function(req, res, next) {
-  console.log("Serving index page");
-  res.sendFile(__dirname + '/index.html');
-});
-
-
-// testing
-app.get('/testing', function(req, web_res, next) {
+app.get('/', function(req, web_res, next) {
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
