@@ -42,9 +42,13 @@ app.get('/testing', function(req, res, next) {
     client.end();
   });
 
+  const client2 = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
 
-  client.connect();
-  client.query('SELECT * from featured_churches', (err, res) => {
+  client2.connect();
+  client2.query('SELECT * from featured_churches', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       var church_id = row.church_id;
@@ -58,7 +62,7 @@ app.get('/testing', function(req, res, next) {
       }
       console.log(JSON.stringify(row));
     }
-    client.end();
+    client2.end();
   });
 
   console.log("Featured Churches");
