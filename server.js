@@ -23,7 +23,7 @@ app.get('/', function(req, res, next) {
 
 
 // testing
-app.get('/testing', function(req, res, next) {
+app.get('/testing', function(req, web_res, next) {
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -36,7 +36,7 @@ app.get('/testing', function(req, res, next) {
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
     }
-    res.render("index", {
+    web_res.render("index", {
       featured_churches: res.rows
     });
 
