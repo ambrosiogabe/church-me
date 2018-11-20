@@ -58,19 +58,19 @@ html(lang="en")
             h2(class="section-heading text-uppercase") Featured Churches of the Month
 
 
-      div(class="row")
+        div(class="row")
 
-        // Featured churches
-        for church in featured_churches
-          div(class="col-md-6 col-sm-6 portfolio-item")
-            a(class="portfolio-link" data-toggle="modal" href="#portfolioModal" + church.church_id)
-              div(class="portfolio-hover")
-                div(class="portfolio-hover-content")
-                  i(class="fas fa-plus fa-3x")
-              img(class="img-fluid" src=church.image_path)
-            div(class="portfolio-caption")
-              h4=church.church_name
-              p(class="text-muted")= church.church_city + "," + church.church_state
+          // Featured churches
+          for church in featured_churches
+            div(class="col-md-6 col-sm-6 portfolio-item")
+              a(class="portfolio-link" data-toggle="modal" href="#portfolioModal" + church.church_id)
+                div(class="portfolio-hover")
+                  div(class="portfolio-hover-content")
+                    i(class="fas fa-plus fa-3x")
+                img(class="img-fluid" src=church.image_path)
+              div(class="portfolio-caption")
+                h4=church.church_name
+                p(class="text-muted")= church.church_city + "," + church.church_state
 
 
 
