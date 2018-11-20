@@ -42,7 +42,8 @@ app.get('/testing', function(req, res, next) {
     client.end();
   });
 
-  /*
+
+  client.connect();
   client.query('SELECT * from featured_churches', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
@@ -57,7 +58,8 @@ app.get('/testing', function(req, res, next) {
       }
       console.log(JSON.stringify(row));
     }
-  });*/
+    client.end();
+  });
 
   console.log("Featured Churches");
   console.log(featured);
