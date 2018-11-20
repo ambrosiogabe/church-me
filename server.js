@@ -24,8 +24,6 @@ app.get('/', function(req, res, next) {
 
 // testing
 app.get('/testing', function(req, res, next) {
-  all_churches = []
-  featured = []
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -33,42 +31,19 @@ app.get('/testing', function(req, res, next) {
 
   client.connect();
 
-  client.query('SELECT * from church;', (err, res) => {
+  client.query('select * from church where (church.church_id in (select church_id from featured_churches));', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       all_churches.push(row);
       console.log(JSON.stringify(row));
     }
+    console.log("Featured Churches");
+    console.log(featured);
+    res.render("index", {
+      featured_churches: res.rows
+    });
+
     client.end();
-  });
-
-  const client2 = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  });
-
-  client2.connect();
-  client2.query('SELECT * from featured_churches', (err, res) => {
-    if (err) throw err;
-    for (let row of res.rows) {
-      var church_id = row.church_id;
-      for (let church in all_churches) {
-        console.log("Current row: " + church_id + " Church Id: " + church.church_id);
-        if (church.church_id == church_id) {
-          featured.push(church);
-          console.log(featured);
-          break;
-        }
-      }
-      console.log(JSON.stringify(row));
-    }
-    client2.end();
-  });
-
-  console.log("Featured Churches");
-  console.log(featured);
-  res.render("index", {
-    featured_churches: featured
   });
 });
 
