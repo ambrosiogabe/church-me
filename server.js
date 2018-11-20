@@ -39,8 +39,10 @@ app.get('/testing', function(req, res, next) {
       all_churches.push(row);
       console.log(JSON.stringify(row));
     }
+    client.end();
   });
 
+  /*
   client.query('SELECT * from featured_churches', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
@@ -55,15 +57,13 @@ app.get('/testing', function(req, res, next) {
       }
       console.log(JSON.stringify(row));
     }
-  });
+  });*/
 
   console.log("Featured Churches");
   console.log(featured);
   res.render("index", {
     featured_churches: featured
   });
-
-  client.end();
 });
 
 
