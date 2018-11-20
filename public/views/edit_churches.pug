@@ -55,16 +55,61 @@
 
 
 
-    <!-- google implementation and sidebar -->
-    <section>
-      <div class="row">
-        for church in churches
-          div(class="col-sm-6 col-md-6")
-            a(href="edit/church" + church.church_id)="Edit: " + church.church_name
-      </div>
-    </section>
+    // Portfolio-Grid
+    section(class="bg-light" id="portfolio")
+      div(class="container")
+        div(class="row")
+          div(class="col-lg-12 text-center")
+            h2(class="section-heading text-uppercase") You can edit any of the churches listed below
 
 
+        div(class="row")
+
+          // Featured churches
+          for church in featured_churches
+            div(class="col-md-6 col-sm-6 portfolio-item")
+              a(class="portfolio-link" data-toggle="modal" href="edit/church" + church.church_id)
+                div(class="portfolio-hover")
+                  div(class="portfolio-hover-content")
+                    i(class="fas fa-plus fa-3x")
+                img(class="img-fluid" src=church.image_path)
+              div(class="portfolio-caption")
+                h4=church.church_name
+                p(class="text-muted")="Edit me"
+                
+                
+    // Footer
+    footer
+      div(class="container")
+        div(class="row")
+          div(class="col-md-4")
+            span(class="copyright" id="copyright") Copyright &copy; Church-Me 2018
+            <script>
+              var span = document.getElementById('copyright');
+              var year = (new Date()).getFullYear();
+              if (year != 2018)
+                span.innerHTML += "-" + (new Date()).getFullYear();
+            </script>
+          div(class="col-md-4")
+            ul(class="list-inline social-buttons")
+              li(class="list-inline-item")
+                a(href="#")
+                  i(class="fab fa-twitter")
+              li(class="list-inline-item")
+                a(href="#")
+                  i(class="fab fa-facebook-f")
+              li(class="list-inline-item")
+                a(href="#")
+                  i(class="fab fa-linkedin-in")
+          div(class="col-md-4")
+            ul(class="list-inline quicklinks")
+              li(class="list-inline-item")
+                a(href="#") Privacy Policy
+              li(class="list-inline-item")
+                a(href="#") Terms of Use
+              li(class="list-inline-item")
+                a(href="/login") Admin    
+    
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
