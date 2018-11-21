@@ -89,7 +89,6 @@ app.post('/add_church', function(req, web_res, next) {
     console.log(count_res);
     var count = count_res.rows[0].id;
     var query_string = "insert into church values (" + count + ", '" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "');";
-    console.log(query_string);
     client.query(query_string, (err, res) => {
       if(err) throw err;
       web_res.redirect('/edit_churches?valid=added');
@@ -158,12 +157,11 @@ app.post('/featured', function(req, web_res, next) {
     for (var id in req.body.featured_churches) {
       query_string += " insert into featured_churches values (" + id + "); ";
     }
-    console.log(query_string);
     client.query(query_string, (err, res) => {
       if(err) throw err;
       web_res.redirect('/edit_churches?valid=featured');
+      client.end();
     });
-    client.end();
   });
 });
 
