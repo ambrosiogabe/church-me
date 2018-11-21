@@ -49,6 +49,27 @@ app.get('/', function(req, web_res, next) {
 });
 
 
+app.get('/add_church', function(req, web_res, next) {
+  web_res.render("add_church");
+});
+
+app.post('/add_church', function(req, web_res, next) {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
+
+  var query_string = "insert into church values ('" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "');";
+  client.connect();
+
+  client.query(query_string, (err, res) => {
+    if(err) throw err;
+    web_res.redirect('/edit_churches?valid=added');
+    client.end();
+  });
+});
+
+
 // admin control page
 app.get('/edit_churches', function(req, web_res, next) {
   const client = new Client({

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Church-Me | Church Finder</title>
+    <title>Church-Me | Add a church</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -68,7 +68,7 @@
               img(src="/img/vec_church.jpg" alt="IMG")
               
             form(method="post" action="" class="contact1-form validate-form")
-              span(class="contact1-form-title")="You are editing " + church.church_name
+              span(class="contact1-form-title")="You may add a church by filling out the form"
             
               div(class="wrap-input1 validate-input" data-validate="Church name is required")
                 input(class="input1" type="text" value=church.church_name placeholder="Church Name" name="church[name]" required)
@@ -104,7 +104,7 @@
               
               div(class="container-contact1-form-btn")
                 button(class="contact1-form-btn")
-                  span="Submit Edits"
+                  span="Add church"
                   input(type="submit" value="" class="submit-btn-special")
                   i(class="fa fa-long-arrow-right" aria-hidden="true")
                 
