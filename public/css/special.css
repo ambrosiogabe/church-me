@@ -1,6 +1,7 @@
 
 
 .my-tooltip {
+  padding-left: 5%;
   font-size: 1.5em;
   width: 18%;
   display: inline-block;
@@ -26,7 +27,7 @@
     position: absolute;
     z-index: 1;
     bottom: -80%;
-    left: 150%;
+    left: 120px;
     margin-left: -60px;
 
     /* Fade in tooltip */
