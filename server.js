@@ -1,6 +1,5 @@
 const fs = require('fs');
 const express = require('express');
-const session = require('express-session');
 const { Client } = require('pg');
 const bodyParser = require("body-parser");
 var path = require('path');
@@ -12,13 +11,20 @@ var ssn;
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname + '/public/views'));
 app.use(express.static(__dirname + '/public'));
+
+var session = require('express-session');
+var MemcachedStore = require('connect-memjs')(session);
+// Session config
 app.use(session({
-  store: new (require('connect-pg-simple')(session))(),
   secret: process.env.SESSION_SECRET,
-  resave: true,
-  cookie: { maxAge: 1 * 24 * 60 * 60 * 1000 }, // 30 days
-  saveUninitialized: true
+  resave: 'true',
+  saveUninitialized: 'true',
+  store: new MemcachedStore({
+    servers: [process.env.MEMCACHIER_SERVERS],
+    prefix: '_session_'
+  })
 }));
+
 
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
