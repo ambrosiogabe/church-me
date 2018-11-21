@@ -130,21 +130,29 @@ app.get('/featured', function(req, web_res, next) {
     connectionString: process.env.DATABASE_URL,
     ssl: true
   });
-
-  var valid = req.query.valid;
   client.connect();
 
   client.query('select * from church;', (err, res) => {
     if(err) throw err;
     web_res.render("feature", {
       churches: res.rows,
-      message: valid,
       logged_in: ssn.logged_in
     });
 
     client.end();
   });
 });
+
+app.post('/featured', function(req, web_res, next) {
+  ssn = req.session;
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+
+  console.log(req.body);
+
+})
 
 // church form and post for church form
 app.get('/edit/church/:id', function(req, web_res, next) {
