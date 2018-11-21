@@ -51,14 +51,16 @@
               <a class="nav-link js-scroll-trigger" href="/">Contact</a>
             </li>
             if (logged_in)
-              <a class="nav-link dropwdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropwdown" aria-haspopup="true" aria-expanded="false">
-                Admin 
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/add_church">Add Church</a>
-                <a class="dropdown-item" href="/edit_churches">Edit Churches</a>
-                <a class="dropdown-item" href="/featured">Feature Churches</a>
-              </div>
+              <li class="nav-item-dropdown">
+                <a class="nav-link dropwdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropwdown" aria-haspopup="true" aria-expanded="false">
+                  Admin 
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/add_church">Add Church</a>
+                  <a class="dropdown-item" href="/edit_churches">Edit Churches</a>
+                  <a class="dropdown-item" href="/featured">Feature Churches</a>
+                </div>
+              </li>
           </ul>
         </div>
       </div>
