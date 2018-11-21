@@ -104,7 +104,7 @@ app.post('/edit/church/:id', function(req, web_res, next) {
 
   client.query(query_string, (err, res) => {
     if(err) throw err;
-    web_res.redirect('/edit_churches/?valid=true');
+    web_res.redirect('/edit_churches?valid=true');
     client.end();
   });
 });
