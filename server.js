@@ -15,8 +15,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({
   store: new (require('connect-pg-simple')(session))(),
   secret: process.env.SESSION_SECRET,
-  resave: false,
-  cookie: { maxAge: 1 * 24 * 60 * 60 * 1000 } // 30 days
+  resave: true,
+  cookie: { maxAge: 1 * 24 * 60 * 60 * 1000 }, // 30 days
+  saveUninitialized: true
 }));
 
 /** bodyParser.urlencoded(options)
