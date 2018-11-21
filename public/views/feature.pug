@@ -76,9 +76,9 @@
           div(class="row")
 
             // Featured churches
-            <form method="post" action="" class="contact1-form validate-form">
+            <form method="post" action="" class="contact1-form validate-form col-md-12 col-sm-12">
             for church in churches
-              input(class="star" type="checkbox" name="featured_churches" value=church.church_id)
+              input(class="star col-md-6 col-sm-6 portfolio-item" type="checkbox" name="featured_churches" value=church.church_id)
               div(class="col-md-6 col-sm-6 portfolio-item")
                 a(class="portfolio-link" href="#")
                   div(class="portfolio-hover")
