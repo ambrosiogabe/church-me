@@ -71,43 +71,35 @@
               span(class="contact1-form-title")="You are editing " + church.church_name
             
               div(class="wrap-input1 validate-input" data-validate="Church name is required")
-                label="Name: "
-                input(class="input1" type="text" value=church.church_name placeholder="Church Name")
+                input(class="input1" type="text" value=church.church_name placeholder="Church Name" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church state is required")
-                label="State: "
-                input(class="input1" type="text" value=church.church_state placeholder="State")
+                input(class="input1" type="text" value=church.church_state placeholder="State" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church city is required")
-                label="City: "
-                input(class="input1" type="text" value=church.church_city placeholder="City")
+                input(class="input1" type="text" value=church.church_city placeholder="City" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church zip is required")
-                label="Zip: "
-                input(class="input1" type="text" value=church.church_zip placeholder="Zip")
+                input(class="input1" type="text" value=church.church_zip placeholder="Zip" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="GPS longitude is required")
-                label="GPS Longitude: "
-                input(class="input1" type="text" value=church.gps_long placeholder="GPS Longitude")
-                span(class="shadow-input1")
+                input(class="input1" type="text" value=church.gps_long placeholder="GPS Longitude ex. -34.53212" required)
+                span(class="shadow-input1 z-index-low")
               
-              div(class="wrap-input1 validate-input" data-validate="GPS latitude is required")
-                label="GPS Latitude: "
-                input(class="input1" type="text" value=church.gps_lat placeholder="GPS Latitude")
+              div(class="wrap-input1 validate-input" data-validate="GPS latitude is required ex. 86.02342")
+                input(class="input1" type="text" value=church.gps_lat placeholder="GPS Latitude" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1")
-                label="Video Link: "
-                input(class="input1" type="text" value=church.video_link placeholder="Video link")
+                input(class="input1" type="text" value=church.video_link placeholder="Video link optional")
                 span(class="shadow-input1 z-index-low")
               
-              div(class="wrap-input1 validate-input" data-validate="Church image is required")
-                label="Image Path: "
-                input(class="input1" type="text" value=church.image_path placeholder="Image path")
+              div(class="wrap-input1 validate-input" data-validate="Church image is required ex. https://www.google.com/some_image_link")
+                input(class="input1" type="text" value=church.image_path placeholder="Image path" required)
                 sspan(class="shadow-input1 z-index-low")
               
               div(class="container-contact1-form-btn")
