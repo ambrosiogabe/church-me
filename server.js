@@ -160,6 +160,10 @@ app.post('/login', function(req, web_res, next) {
     if(err) throw err;
     var new_username = res.rows[0].username;
     var new_password = res.rows[0].password;
+    console.log(username);
+    console.log(new_username);
+    console.log(password);
+    console.log(new_password);
     if (new_username == username && new_password == password) {
       web_res.redirect('/edit_churches?valid=login')
     } else {
