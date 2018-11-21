@@ -25,128 +25,129 @@
 
   </head>
 
-  <body id="page-top">
+  if (logged_in)
+    <body id="page-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg dark-background not-main-menu" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/">Church-<p class="ME_RED">Me</p>.com</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/church-finder">Church Finder</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/">Contact</a>
-            </li>
-            if (logged_in)
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Admin </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item dark-text" href="/add_church">Add Church</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item dark-text" href="/edit_churches">Edit Churches</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item dark-text" href="/featured">Feature Churches</a>
-                </div>
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg dark-background not-main-menu" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="/">Church-<p class="ME_RED">Me</p>.com</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/">Home</a>
               </li>
-          </ul>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/church-finder">Church Finder</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/">Contact</a>
+              </li>
+              if (logged_in)
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Admin </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item dark-text" href="/add_church">Add Church</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dark-text" href="/edit_churches">Edit Churches</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dark-text" href="/featured">Feature Churches</a>
+                  </div>
+                </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
 
 
 
 
-    // Portfolio-Grid
-    section(class="bg-light" id="portfolio")
-      div(class="container")
-        if (message == "true")
-          <div class="alert alert-success alert-dismissible"> You have successfully <strong>updated</strong> a church!
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          </div>
-        else if (message == "added")
-          <div class="alert alert-success alert-dismissible"> You have successfully <strong>added</strong> a church!
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          </div>
-        else if (message == "login")
-          <div class="alert alert-success alert-dismissible"> You have successfully <strong>logged in</strong>!
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          </div>
-        div(class="row")
-          div(class="col-lg-12 text-center")
-            h2(class="section-heading text-uppercase") You can edit any of the churches listed below
+      // Portfolio-Grid
+      section(class="bg-light" id="portfolio")
+        div(class="container")
+          if (message == "true")
+            <div class="alert alert-success alert-dismissible"> You have successfully <strong>updated</strong> a church!
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+          else if (message == "added")
+            <div class="alert alert-success alert-dismissible"> You have successfully <strong>added</strong> a church!
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+          else if (message == "login")
+            <div class="alert alert-success alert-dismissible"> You have successfully <strong>logged in</strong>!
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+          div(class="row")
+            div(class="col-lg-12 text-center")
+              h2(class="section-heading text-uppercase") You can edit any of the churches listed below
 
 
-        div(class="row")
+          div(class="row")
 
-          // Featured churches
-          for church in churches
-            div(class="col-md-6 col-sm-6 portfolio-item")
-              a(class="portfolio-link" href="edit/church/" + church.church_id)
-                div(class="portfolio-hover")
-                  div(class="portfolio-hover-content")
-                    i(class="fas fa-plus fa-3x")
-                img(class="img-fluid" src=church.image_path)
-              div(class="portfolio-caption")
-                h4=church.church_name
-                p(class="text-muted")="Edit me"
-                
-                
-    // Footer
-    footer
-      div(class="container")
-        div(class="row")
-          div(class="col-md-4")
-            span(class="copyright" id="copyright") Copyright &copy; Church-Me 2018
-            <script>
-              var span = document.getElementById('copyright');
-              var year = (new Date()).getFullYear();
-              if (year != 2018)
-                span.innerHTML += "-" + (new Date()).getFullYear();
-            </script>
-          div(class="col-md-4")
-            ul(class="list-inline social-buttons")
-              li(class="list-inline-item")
-                a(href="#")
-                  i(class="fab fa-twitter")
-              li(class="list-inline-item")
-                a(href="#")
-                  i(class="fab fa-facebook-f")
-              li(class="list-inline-item")
-                a(href="#")
-                  i(class="fab fa-linkedin-in")
-          div(class="col-md-4")
-            ul(class="list-inline quicklinks")
-              li(class="list-inline-item")
-                a(href="#") Privacy Policy
-              li(class="list-inline-item")
-                a(href="#") Terms of Use
-              li(class="list-inline-item")
-                a(href="/login") Admin    
-    
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            // Featured churches
+            for church in churches
+              div(class="col-md-6 col-sm-6 portfolio-item")
+                a(class="portfolio-link" href="edit/church/" + church.church_id)
+                  div(class="portfolio-hover")
+                    div(class="portfolio-hover-content")
+                      i(class="fas fa-plus fa-3x")
+                  img(class="img-fluid" src=church.image_path)
+                div(class="portfolio-caption")
+                  h4=church.church_name
+                  p(class="text-muted")="Edit me"
+                  
+                  
+      // Footer
+      footer
+        div(class="container")
+          div(class="row")
+            div(class="col-md-4")
+              span(class="copyright" id="copyright") Copyright &copy; Church-Me 2018
+              <script>
+                var span = document.getElementById('copyright');
+                var year = (new Date()).getFullYear();
+                if (year != 2018)
+                  span.innerHTML += "-" + (new Date()).getFullYear();
+              </script>
+            div(class="col-md-4")
+              ul(class="list-inline social-buttons")
+                li(class="list-inline-item")
+                  a(href="#")
+                    i(class="fab fa-twitter")
+                li(class="list-inline-item")
+                  a(href="#")
+                    i(class="fab fa-facebook-f")
+                li(class="list-inline-item")
+                  a(href="#")
+                    i(class="fab fa-linkedin-in")
+            div(class="col-md-4")
+              ul(class="list-inline quicklinks")
+                li(class="list-inline-item")
+                  a(href="#") Privacy Policy
+                li(class="list-inline-item")
+                  a(href="#") Terms of Use
+                li(class="list-inline-item")
+                  a(href="/login") Admin    
+      
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Plugin JavaScript -->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+      <!-- Contact form JavaScript -->
+      <script src="js/jqBootstrapValidation.js"></script>
+      <script src="js/contact_me.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+      <!-- Custom scripts for this template -->
+      <script src="js/agency.min.js"></script>
 
-  </body>
+    </body>
 
 </html>

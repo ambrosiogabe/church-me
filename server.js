@@ -204,8 +204,10 @@ app.post('/login', function(req, web_res, next) {
 
 // church finder
 app.get('/church-finder', function(req, res, next) {
-  console.log("getting church-finder");
-  res.sendFile(__dirname + '/public/html_files/church-finder.html');
+  ssn = req.session;
+  res.render("church-finder", {
+    logged_in: ssn.logged_in
+  });
 })
 
 // listener
