@@ -140,8 +140,33 @@ app.post('/edit/church/:id', function(req, web_res, next) {
 
 // login
 app.get('/login', function(req, res, next) {
-  console.log("getting login");
-  res.sendFile(__dirname + '/public/html_files/login.html');
+  var valid = req.query.valid;
+  res.render("login", {
+    message: valid
+  });
+});
+
+app.post('/login', function(req, web_res, next) {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+
+  var username = req.body.user.username;
+  var password = req.body.user.password;
+
+  client.query("select * from admin where username = 'administrator'", (err, res) => {
+    if(err) throw err;
+    var new_username = res.rows[0].username;
+    var new_password = res.rows[0].password;
+    if (new_username == username && new_password == password) {
+      web_res.redirect('/edit_churches?valid=login')
+    } else {
+      web_res.redirect('/login?valid=failed')
+    }
+
+    client.end();
+  });
 });
 
 
