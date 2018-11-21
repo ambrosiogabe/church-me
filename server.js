@@ -99,7 +99,7 @@ app.post('/edit/church/:id', function(req, web_res, next) {
   });
 
   var query_string = "update church set church_state = " + req.body.church.state + ", church_zip = " + req.body.church.zip + ", church_city = " + req.body.church.city + ", church_name = " + req.body.church.name + ", gps_long = " + req.body.church.gps_long + ", gps_lat = " + req.body.church.gps_lat + ", video_link = " + req.body.church.video_link + ", image_path = " + req.body.church.image_path + " where church_id = " + req.params.id + ";";
-
+  console.log(query_string);
   client.connect();
 
   client.query(query_string, (err, res) => {
