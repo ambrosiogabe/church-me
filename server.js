@@ -151,6 +151,7 @@ app.post('/login', function(req, web_res, next) {
     connectionString: process.env.DATABASE_URL,
     ssl: true
   });
+  client.connect();
 
   var username = req.body.user.username;
   var password = req.body.user.password;
