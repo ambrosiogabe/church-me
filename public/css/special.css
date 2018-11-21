@@ -4,12 +4,12 @@
   background-color: #212529 !important;
 }
 
-.not-main-menu .container a {
+.not-main-menu .container a.nav-link, .not-main-menu .container a.navbar-brand {
   color: white !important;
 }
 
 .dark-text {
-  color: black;
+  color: black !important;
 }
 
 
