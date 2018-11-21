@@ -95,6 +95,10 @@ form iframe {
   z-index: -1 !important;
 }
 
+.submit-btn-special {
+  display: none;
+}
+
 .contact1 {
   width: 100%;
   min-height: 100%;

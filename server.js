@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const { Client } = require('pg');
+const bodyParser = require("body-parser");
 var path = require('path');
 
 // Create app using express
@@ -9,6 +10,19 @@ const app = express();
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname + '/public/views'));
 app.use(express.static(__dirname + '/public'));
+
+/** bodyParser.urlencoded(options)
+ * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+ * and exposes the resulting object (containing the keys and values) on req.body
+ */
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
 
 // Use heroku's supplied port, default to 3000 for local running
 const port = process.env.PORT || 3000;
@@ -42,18 +56,23 @@ app.get('/edit_churches', function(req, web_res, next) {
     ssl: true
   });
 
+  var valid = req.query.valid;
   client.connect();
 
   client.query('select * from church;', (err, res) => {
     if(err) throw err;
     web_res.render("edit_churches", {
-      churches: res.rows
+      churches: res.rows,
+      message: valid
     });
 
     client.end();
   });
 });
 
+
+
+// church form and post for church form
 app.get('/edit/church/:id', function(req, web_res, next) {
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
@@ -69,6 +88,26 @@ app.get('/edit/church/:id', function(req, web_res, next) {
       church: res.rows[0]
     });
 
+    client.end();
+  });
+});
+
+app.post('/edit/church/:id', function(req, web_res, next) {
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
+
+  var query_string = "update church set church_state = " + req.body.church.state + ", church_zip = " + req.body.church.zip + \
+  ", church_city = " req.body.church.city + ", church_name = " + req.body.church.name + ", gps_long = " + req.body.church.gps_long + \
+  ", gps_lat = " req.body.church.gps_lat + ", video_link = " + req.body.church.video_link + ", image_path = " + req.body.church.image_path + \
+  " where church_id = " req.params.id + ";";
+
+  client.connect();
+
+  client.query(query_string, (err, res) => {
+    if(err) throw err;
+    web_res.redirect('/edit_churches/?valid=true');
     client.end();
   });
 });

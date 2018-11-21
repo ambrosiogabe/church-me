@@ -67,45 +67,45 @@
             div(class="contact1-pic js-tilt" data-tilt)
               img(src="/images/img-01.png" alt="IMG")
               
-            form(action="#" class="contact1-form validate-form")
+            form(action="" class="contact1-form validate-form")
               span(class="contact1-form-title")="You are editing " + church.church_name
             
               div(class="wrap-input1 validate-input" data-validate="Church name is required")
-                input(class="input1" type="text" value=church.church_name placeholder="Church Name" required)
+                input(class="input1" type="text" value=church.church_name placeholder="Church Name" name="church[name]" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church state is required")
-                input(class="input1" type="text" value=church.church_state placeholder="State" required)
+                input(class="input1" type="text" value=church.church_state placeholder="State" name="church[state]" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church city is required")
-                input(class="input1" type="text" value=church.church_city placeholder="City" required)
+                input(class="input1" type="text" value=church.church_city placeholder="City" name="church[city]" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church zip is required")
-                input(class="input1" type="text" value=church.church_zip placeholder="Zip" required)
+                input(class="input1" type="text" value=church.church_zip placeholder="Zip" name="church[zip]" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="GPS longitude is required")
-                input(class="input1" type="text" value=church.gps_long placeholder="GPS Longitude ex. -34.53212" required)
+                input(class="input1" type="text" value=church.gps_long placeholder="GPS Longitude ex. -34.53212" name="church[long]" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="GPS latitude is required ex. 86.02342")
-                input(class="input1" type="text" value=church.gps_lat placeholder="GPS Latitude" required)
+                input(class="input1" type="text" value=church.gps_lat placeholder="GPS Latitude" name="church[lat]" required)
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1")
-                input(class="input1" type="text" value=church.video_link placeholder="Video link optional")
+                input(class="input1" type="text" value=church.video_link placeholder="Video link optional" name="church[video_link]")
                 span(class="shadow-input1 z-index-low")
               
               div(class="wrap-input1 validate-input" data-validate="Church image is required ex. https://www.google.com/some_image_link")
-                input(class="input1" type="text" value=church.image_path placeholder="Image path" required)
+                input(class="input1" type="text" value=church.image_path placeholder="Image path" name="church[image_path]" required)
                 sspan(class="shadow-input1 z-index-low")
               
               div(class="container-contact1-form-btn")
                 button(class="contact1-form-btn")
                   span="Submit Edits"
-                  input(type="submit" value="")
+                  input(type="submit" value="" class="submit-btn-special")
                   i(class="fa fa-long-arrow-right" aria-hidden="true")
                 
                 
