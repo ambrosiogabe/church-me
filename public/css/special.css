@@ -1,5 +1,13 @@
 
 
+.not-main-menu {
+  background-color: #212529 !important;
+}
+
+.not-main-menu .container a {
+  color: white !important;
+}
+
 
 
 /*//////////////////////////////////////////////////////////////////
