@@ -1,5 +1,6 @@
 const fs = require('fs');
 const express = require('express');
+const session = require('express-session');
 const { Client } = require('pg');
 const bodyParser = require("body-parser");
 var path = require('path');
