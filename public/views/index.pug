@@ -38,6 +38,16 @@ html(lang="en")
               a(class="nav-link js-scroll-trigger" href="/church-finder") Church Finder
             li(class="nav-item")
               a(class="nav-link js-scroll-trigger" href="/") Contact
+            if (logged_in)
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/add_church">Add Church</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/edit_churches">Edit Churches</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/featured">Feature Churches</a>
+              </li>
 
     header(class="masthead")
       div(class="overlay")

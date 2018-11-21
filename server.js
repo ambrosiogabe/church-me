@@ -7,9 +7,11 @@ var path = require('path');
 // Create app using express
 // Also set it to 'know' it is using pug and find where the assets are stored
 const app = express();
+var ssn;
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname + '/public/views'));
 app.use(express.static(__dirname + '/public'));
+app.use(session({secret: process.env.SESSION_SECRET}));
 
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
@@ -31,6 +33,8 @@ const port = process.env.PORT || 3000;
 
 // index
 app.get('/', function(req, web_res, next) {
+  ssn = req.session;
+
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -41,7 +45,8 @@ app.get('/', function(req, web_res, next) {
   client.query('select * from church where (church.church_id in (select church_id from featured_churches));', (err, res) => {
     if (err) throw err;
     web_res.render("index", {
-      featured_churches: res.rows
+      featured_churches: res.rows,
+      logged_in: ssn.logged_in
     });
 
     client.end();
@@ -50,10 +55,14 @@ app.get('/', function(req, web_res, next) {
 
 
 app.get('/add_church', function(req, web_res, next) {
-  web_res.render("add_church");
+  ssn = req.session;
+  web_res.render("add_church", {
+    logged_in: ssn.logged_in
+  });
 });
 
 app.post('/add_church', function(req, web_res, next) {
+  ssn = req.session;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -79,6 +88,7 @@ app.post('/add_church', function(req, web_res, next) {
 
 // admin control page
 app.get('/edit_churches', function(req, web_res, next) {
+  ssn = req.session;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true
@@ -91,7 +101,8 @@ app.get('/edit_churches', function(req, web_res, next) {
     if(err) throw err;
     web_res.render("edit_churches", {
       churches: res.rows,
-      message: valid
+      message: valid,
+      logged_in: ssn.logged_in
     });
 
     client.end();
@@ -102,6 +113,7 @@ app.get('/edit_churches', function(req, web_res, next) {
 
 // church form and post for church form
 app.get('/edit/church/:id', function(req, web_res, next) {
+  ssn = req.session;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true
@@ -113,7 +125,8 @@ app.get('/edit/church/:id', function(req, web_res, next) {
   client.query(query_string, (err, res) => {
     if(err) throw err;
     web_res.render("church_form", {
-      church: res.rows[0]
+      church: res.rows[0],
+      logged_in: ssn.logged_in
     });
 
     client.end();
@@ -121,6 +134,7 @@ app.get('/edit/church/:id', function(req, web_res, next) {
 });
 
 app.post('/edit/church/:id', function(req, web_res, next) {
+  ssn = req.session;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -140,13 +154,16 @@ app.post('/edit/church/:id', function(req, web_res, next) {
 
 // login
 app.get('/login', function(req, res, next) {
+  ssn = req.session;
   var valid = req.query.valid;
   res.render("login", {
-    message: valid
+    message: valid,
+    logged_in: ssn.logged_in
   });
 });
 
 app.post('/login', function(req, web_res, next) {
+  ssn = req.session;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true
@@ -161,6 +178,7 @@ app.post('/login', function(req, web_res, next) {
     var new_username = res.rows[0].username;
     var new_password = res.rows[0].password;
     if (new_username == username && new_password == password) {
+      ssn.logged_in = true;
       web_res.redirect('/edit_churches?valid=login')
     } else {
       web_res.redirect('/login?valid=failed')
@@ -176,9 +194,3 @@ app.get('/church-finder', function(req, res, next) {
   console.log("getting church-finder");
   res.sendFile(__dirname + '/public/html_files/church-finder.html');
 })
-
-
-// listener
-app.listen(port, () => {
-  console.log(`Server now running at http://${process.env.HOST}:${port}/`);
-});
