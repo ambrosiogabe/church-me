@@ -1,5 +1,46 @@
 
 
+.my-tooltip {
+  font-size: 1.5em;
+  width: 18%;
+  display: inline-block;
+  position: relative;
+}
+
+.my-tooltiptext {
+  font-size: 0.7em;
+  padding: 1%;
+}
+
+/* Tooltip text */
+.my-tooltip .my-tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: -80%;
+    left: 150%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.my-tooltip:hover .my-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
 .not-main-menu {
   background-color: #212529 !important;
 }
@@ -213,8 +254,8 @@ textarea.input1 + .shadow-input1 {
 }
 
 .input1 {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  width: 80%;
   background: #e6e6e6;
   font-family: Montserrat-Bold;
   font-size: 15px;
@@ -224,12 +265,12 @@ textarea.input1 + .shadow-input1 {
 
 .shadow-input1 {
   content: '';
-  display: block;
+  display: inline-block;
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: -1;
-  width: 100%;
+  width: 80%;
   height: 100%;
   box-shadow: 0px 0px 0px 0px;
   color: rgba(87,184,70, 0.5);

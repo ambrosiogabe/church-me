@@ -100,21 +100,33 @@
                   input(class="input1" type="text" placeholder="Zip" name="church[zip]" required)
                   span(class="shadow-input1 z-index-low")
                 
-                div(class="wrap-input1 validate-input" data-validate="GPS longitude is required")
-                  input(class="input1" type="text" placeholder="GPS Longitude ex. -34.53212" name="church[long]" required)
+                div(class="wrap-input1 validate-input" data-validate="GPS longitude is required ex. -86.767960")
+                  input(class="input1" type="text" placeholder="GPS Longitude ex. 36.174465" name="church[long]" required)
                   span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle-o my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">You can find this on Google Maps. <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en">More help.</a></span>
+                  </i>
                 
                 div(class="wrap-input1 validate-input" data-validate="GPS latitude is required ex. 86.02342")
                   input(class="input1" type="text" placeholder="GPS Latitude" name="church[lat]" required)
                   span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle-o my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">You can find this on Google Maps. <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en">More help.</a></span>
+                  </i>
                 
                 div(class="wrap-input1")
                   input(class="input1" type="text" placeholder="Video link optional" name="church[video_link]")
                   span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle-o my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">This field is optional and will add a video popup when this church is featured. Paste the Youtube or Vimeo link in here.</span>
+                  </i>
                 
                 div(class="wrap-input1 validate-input" data-validate="Church image is required ex. https://www.google.com/some_image_link")
                   input(class="input1" type="text" placeholder="Image path" name="church[image_path]" required)
-                  sspan(class="shadow-input1 z-index-low")
+                  span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle-o my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">Simply paste a link to an image here. If you're on Google Images, you can find this if you right-click the image and click copy address of image.</span>
+                  </i>
                 
                 div(class="container-contact1-form-btn")
                   button(class="contact1-form-btn")
