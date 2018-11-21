@@ -92,7 +92,7 @@ form iframe {
 [ Contact 1 ]*/
 
 .z-index-low {
-  z-index: -1;
+  z-index: -1 !important;
 }
 
 .contact1 {
