@@ -62,10 +62,14 @@ app.post('/add_church', function(req, web_res, next) {
   var query_string = "insert into church values ('" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "');";
   client.connect();
 
-  client.query(query_string, (err, res) => {
-    if(err) throw err;
-    web_res.redirect('/edit_churches?valid=added');
-    client.end();
+  client.query("select (select count(*) from church) as id;" (err, count_res) => {
+    var count = count_res[0].id;
+    var query_string = "insert into church values (" + count + ", '" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "');";
+    client.query(query_string, (err, res) => {
+      if(err) throw err;
+      web_res.redirect('/edit_churches?valid=added');
+      client.end();
+    });
   });
 });
 
