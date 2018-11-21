@@ -150,9 +150,22 @@ app.post('/featured', function(req, web_res, next) {
     ssl: true
   });
 
-  console.log(req.body);
+  client.connect();
 
-})
+  client.query("delete from featured_churches where church_id != -1;", (err, res) => {
+    if(err) throw err;
+    var query_string = "";
+    for (var id in req.body.featured_churches) {
+      query_string += " insert into featured_churches values (" + id + "); ";
+    }
+    console.log(query_string);
+    client.query(query_string, (err, res) => {
+      if(err) throw err;
+      web_res.redirect('/edit_churches?valid=featured');
+    });
+    client.end();
+  });
+});
 
 // church form and post for church form
 app.get('/edit/church/:id', function(req, web_res, next) {
