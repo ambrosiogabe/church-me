@@ -207,3 +207,8 @@ app.get('/church-finder', function(req, res, next) {
   console.log("getting church-finder");
   res.sendFile(__dirname + '/public/html_files/church-finder.html');
 })
+
+// listener
+app.listen(port, () => {
+  console.log(`Server now running at http://${process.env.HOST}:${port}/`);
+});
