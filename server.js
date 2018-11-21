@@ -165,6 +165,13 @@ app.post('/featured', function(req, web_res, next) {
   });
 });
 
+// logout
+app.get('/logout', function(req, web_res, next) {
+  ssn = req.session;
+  ssn.logged_in = false;
+  web_res.redirect('/login?valid=logged_out')
+});
+
 // church form and post for church form
 app.get('/edit/church/:id', function(req, web_res, next) {
   ssn = req.session;
