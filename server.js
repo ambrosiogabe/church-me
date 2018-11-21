@@ -12,7 +12,12 @@ var ssn;
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname + '/public/views'));
 app.use(express.static(__dirname + '/public'));
-app.use(session({secret: process.env.SESSION_SECRET}));
+app.use(session({
+  store: new (require('connect-pg-simple')(session))(),
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  cookie: { maxAge: 1 * 24 * 60 * 60 * 1000 } // 30 days
+}));
 
 /** bodyParser.urlencoded(options)
  * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
