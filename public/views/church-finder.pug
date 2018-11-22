@@ -28,7 +28,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg dark-background" id="mainNav">
+    <nav class="navbar navbar-expand-lg dark-background not-main-menu" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="/">Church-<p class="ME_RED">Me</p>.com</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,11 +46,23 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/">Contact</a>
             </li>
+            if (logged_in)
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Admin </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item dark-text" href="/add_church">Add Church</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dark-text" href="/edit_churches">Edit Churches</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dark-text" href="/featured">Feature Churches</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item dark-text" href="/logout">Logout</a>
+                </div>
+              </li>
           </ul>
         </div>
       </div>
     </nav>
-
 
 
 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Church-Me | Add a church</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/agency.css" rel="stylesheet">
+    <link href="/css/special.css" rel="stylesheet">
+
+  </head>
+  
+  if (logged_in)
+    <body id="page-top">
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg dark-background not-main-menu" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="/">Church-<p class="ME_RED">Me</p>.com</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/church-finder">Church Finder</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/">Contact</a>
+              </li>
+              if (logged_in)
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Admin </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item dark-text" href="/add_church">Add Church</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dark-text" href="/edit_churches">Edit Churches</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dark-text" href="/featured">Feature Churches</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item dark-text" href="/logout">Logout</a>
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+      // Portfolio-Grid
+      section(class="bg-light" id="portfolio")
+        div(class="container")
+          div(class="contact1")
+            div(class="container-contact1")
+              div(class="contact1-pic js-tilt" data-tilt)
+                img(src="/img/vec_church.jpg" alt="IMG")
+                
+              form(method="post" action="" class="contact1-form validate-form")
+                span(class="contact1-form-title")="You may add a church by filling out the form"
+              
+                div(class="wrap-input1 validate-input" data-validate="Church name is required")
+                  input(class="input1" type="text" placeholder="Church Name" name="church[name]" required)
+                  span(class="shadow-input1 z-index-low")
+                
+                div(class="wrap-input1 validate-input" data-validate="Church state is required")
+                  input(class="input1" type="text" placeholder="State" name="church[state]" required)
+                  span(class="shadow-input1 z-index-low")
+                
+                div(class="wrap-input1 validate-input" data-validate="Church city is required")
+                  input(class="input1" type="text" placeholder="City" name="church[city]" required)
+                  span(class="shadow-input1 z-index-low")
+                
+                div(class="wrap-input1 validate-input" data-validate="Church zip is required")
+                  input(class="input1" type="text" placeholder="Zip" name="church[zip]" required)
+                  span(class="shadow-input1 z-index-low")
+                
+                div(class="wrap-input1 validate-input" data-validate="GPS longitude is required ex. -86.767960")
+                  input(class="input1" type="text" placeholder="GPS Longitude ex. 36.174465" name="church[long]" required)
+                  span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">You can find this on Google Maps. <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en">More help.</a></span>
+                  </i>
+                
+                div(class="wrap-input1 validate-input" data-validate="GPS latitude is required ex. 86.02342")
+                  input(class="input1" type="text" placeholder="GPS Latitude" name="church[lat]" required)
+                  span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">You can find this on Google Maps. <a href="https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=en">More help.</a></span>
+                  </i>
+                
+                div(class="wrap-input1")
+                  input(class="input1" type="text" placeholder="Video link optional" name="church[video_link]")
+                  span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">This field is optional and will add a video popup when this church is featured. Paste the Youtube or Vimeo link in here.</span>
+                  </i>
+                
+                div(class="wrap-input1 validate-input" data-validate="Church image is required ex. https://www.google.com/some_image_link")
+                  input(class="input1" type="text" placeholder="Image path" name="church[image_path]" required)
+                  span(class="shadow-input1 z-index-low")
+                  <i class="fa fa-question-circle my-tooltip" aria-hidden="true">
+                    <span class="my-tooltiptext">Simply paste a link to an image here. If you're on Google Images, you can find this if you right-click the image and click copy address of image.</span>
+                  </i>
+                
+                div(class="container-contact1-form-btn")
+                  button(class="contact1-form-btn")
+                    span="Add church"
+                    input(type="submit" value="" class="submit-btn-special")
+                    i(class="fa fa-long-arrow-right" aria-hidden="true")
+                  
+                  
+      // Footer
+      footer
+        div(class="container")
+          div(class="row")
+            div(class="col-md-4")
+              span(class="copyright" id="copyright") Copyright &copy; Church-Me 2018
+              <script>
+                var span = document.getElementById('copyright');
+                var year = (new Date()).getFullYear();
+                if (year != 2018)
+                  span.innerHTML += "-" + (new Date()).getFullYear();
+              </script>
+            div(class="col-md-4")
+              ul(class="list-inline social-buttons")
+                li(class="list-inline-item")
+                  a(href="#")
+                    i(class="fab fa-twitter")
+                li(class="list-inline-item")
+                  a(href="#")
+                    i(class="fab fa-facebook-f")
+                li(class="list-inline-item")
+                  a(href="#")
+                    i(class="fab fa-linkedin-in")
+            div(class="col-md-4")
+              ul(class="list-inline quicklinks")
+                li(class="list-inline-item")
+                  a(href="#") Privacy Policy
+                li(class="list-inline-item")
+                  a(href="#") Terms of Use
+                li(class="list-inline-item")
+                  a(href="/login") Admin    
+      
+      <!-- Bootstrap core JavaScript -->
+      <script src="/vendor/jquery/jquery.min.js"></script>
+      <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+      <!-- Plugin JavaScript -->
+      <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+      <!-- Contact form JavaScript -->
+      <script src="/js/jqBootstrapValidation.js"></script>
+      <script src="/js/contact_me.js"></script>
+
+      <!-- Custom scripts for this template -->
+      <script src="/js/agency.min.js"></script>
+
+    </body>
+
+</html>
