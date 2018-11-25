@@ -18,8 +18,9 @@ function hashPassword(password)
 
 function verifyHash(password, original)
 {
-	var attempt = crypto.pbkdf2Sync(password, original.split(HASH_DELIM)[0], ...PBKDF2_ARGS).toString("hex");
-	return original === attempt;
+	var [salt, originalHash] = original.split(HASH_DELIM);
+	var hash = crypto.pbkdf2Sync(password, salt, ...PBKDF2_ARGS).toString("hex");
+	return hash === originalHash;
 }
 
 module.exports.hashPassword = hashPassword;
