@@ -253,8 +253,14 @@ app.post('/login', function(req, web_res, next) {
 // church finder
 app.get('/church-finder', function(req, res, next) {
   ssn = req.session;
-  res.render("church-finder", {
-    logged_in: ssn.logged_in
+  client.query('select * from church;', (err, res) => {
+    if(err) throw err;
+    web_res.render("church-finder", {
+      churches: res.rows,
+      logged_in: ssn.logged_in
+    });
+
+    client.end();
   });
 })
 

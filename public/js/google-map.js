@@ -12,93 +12,37 @@ function myMap() {
     }
     map = new google.maps.Map(document.getElementById("google-map"), mapOptions);
 
-    var marker1 = new google.maps.Marker({
-          position: new google.maps.LatLng(36.159623, -86.780363),
-          icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-          map: map,
-          title: 'Nashville First Baptist Church'
-    });
+    var churches = document.getElementsByClassName("church-entry");
 
-    var marker2 = new google.maps.Marker({
-        position: new google.maps.LatLng(36.004916, -86.884880),
-        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+    for (var church in churches) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(churchEntry.gps_lat, churchEntry.gps_long),
         map: map,
-        title: "Grassland Heights Church"
-      });
-
-      var marker3 = new google.maps.Marker({
-        position: new google.maps.LatLng(36.063723, -86.772885),
-        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-        map: map,
-        title: "Brentwood Hills Church of Christ"
-      });
-
-    markers[0] = marker1;
-    markers[1] = marker2;
-    markers[2] = marker3;
+        title: churchEntry.title
+      })
+      markers.push(marker);
+    }
 }
 
 function mouseEnter(churchEntry) {
-  if(churchEntry.id == "nfb") {
-    markers[0].setMap(null);
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(36.159623, -86.780363),
-      map: map,
-      title: "Nashville First Baptist Church"
-    });
+  markers[churchEntry.id].setMap(null);
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(churchEntry.gps_lat, churchEntry.gps_long),
+    map: map,
+    title: churchEntry.title
+  });
 
-    markers[0] = marker;
-  } else if (churchEntry.id == "ghc") {
-    markers[1].setMap(null);
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(36.004916, -86.884880),
-      map: map,
-      title: "Grassland Heights Church"
-    });
-
-    markers[1] = marker;
-  } else if (churchEntry.id == "bhc") {
-    markers[2].setMap(null);
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(36.063723, -86.772885),
-      map: map,
-      title: "Brentwood Hills Church of Christ"
-    });
-
-    markers[2] = marker;
-  }
+  markers[churchEntry.id] = marker;
 }
 
 function leaving(churchEntry) {
-  if(churchEntry.id == "nfb") {
-    markers[0].setMap(null);
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(36.159623, -86.780363),
-      icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-      map: map,
-      title: "Nashville First Baptist Church"
-    });
+  markers[churchEntry.id].setMap(null);
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(churchEntry.gps_lat, churchEntry.gps_long),
+    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+    map: map,
+    title: churchEntry.title
+  });
 
-    markers[0] = marker;
-  } else if (churchEntry.id == "ghc") {
-    markers[1].setMap(null);
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(36.004916, -86.884880),
-      icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-      map: map,
-      title: "Grassland Heights Church"
-    });
-
-    markers[1] = marker;
-  } else if (churchEntry.id == "bhc") {
-    markers[2].setMap(null);
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(36.063723, -86.772885),
-      icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
-      map: map,
-      title: "Brentwood Hills Church of Christ"
-    });
-
-    markers[2] = marker;
-  }
+  markers[churchEntry.id] = marker;
 }
