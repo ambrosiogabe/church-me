@@ -2,7 +2,9 @@ const fs = require('fs');
 const express = require('express');
 const { Client } = require('pg');
 const bodyParser = require("body-parser");
-var path = require('path');
+const path = require('path');
+
+//const utils = require("./utils");
 
 // Create app using express
 // Also set it to 'know' it is using pug and find where the assets are stored
@@ -233,7 +235,41 @@ app.post('/login', function(req, web_res, next) {
 
   var username = req.body.user.username;
   var password = req.body.user.password;
-
+  
+  /* 
+   * Secure Login Verification
+   * -------------------------
+   * Before uncommenting:
+   *    - Obtain an SSL certificate and redefine "\login" to point to an HTTPS address (in both this file and in the
+   *      corresponding `form` element). This is absolutely essential; without it, any attacker could easily intercept
+   *      sensitive data on its way to/from the server. Getting an SSL certificate on Heroku requires payment, so the
+   *      client should be made to do this, unless he would rather be at constant risk of attack.
+   *
+   * 	- Insert `password` column in `admin` table. It should be of type CHAR(65).
+   *
+   *    - Uncomment `require(./utils)` statement at the top of the page. If "utils.js" was moved from the top-level folder,
+   *      edit the argument to `require` accordingly.
+   */
+		
+  /*
+  var redirectAddr = "/login?valid=failed";
+  
+  // ensures that `username` is sanitary (i.e. consists only of letters, numbers, and underscore)
+  if (username.search(/\W/) != -1)
+	  web_res.redirect(redirectAddr);
+  client.query(`SELECT * FROM admin WHERE username = ${username}`, function(err, res)
+  {
+	  if (err)
+		  throw err;
+	  else if (res.rows.length && utils.verifyHash(password, res.rows[0].password))
+		  // successful login
+		  web_res.redirect("/edit_churches?valid=login");
+	  else
+		  // incorrect username or password
+		  web_res.redirect(redirectAddr);
+  }
+  */
+  
   client.query("select * from admin where username = 'administrator'", (err, res) => {
     if(err) throw err;
     var new_username = res.rows[0].username;
@@ -244,7 +280,7 @@ app.post('/login', function(req, web_res, next) {
     } else {
       web_res.redirect('/login?valid=failed')
     }
-
+	
     client.end();
   });
 });
