@@ -287,14 +287,14 @@ app.post('/login', function(req, web_res, next) {
 
 
 // church finder
-app.get('/church-finder', function(req, res, next) {
+app.get('/church-finder', function(req, web_res, next) {
   ssn = req.session;
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true
   });
   client.connect();
-  
+
   client.query('select * from church;', (err, res) => {
     if(err) throw err;
     web_res.render("church-finder", {
