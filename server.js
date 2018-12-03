@@ -235,8 +235,8 @@ app.post('/login', function(req, web_res, next) {
 
   var username = req.body.user.username;
   var password = req.body.user.password;
-  
-  /* 
+
+  /*
    * Secure Login Verification
    * -------------------------
    * Before uncommenting:
@@ -250,10 +250,10 @@ app.post('/login', function(req, web_res, next) {
    *    - Uncomment `require(./utils)` statement at the top of the page. If "utils.js" was moved from the top-level folder,
    *      edit the argument to `require` accordingly.
    */
-		
+
   /*
   var redirectAddr = "/login?valid=failed";
-  
+
   // ensures that `username` is sanitary (i.e. consists only of letters, numbers, and underscore)
   if (username.search(/\W/) != -1)
 	  web_res.redirect(redirectAddr);
@@ -269,7 +269,7 @@ app.post('/login', function(req, web_res, next) {
 		  web_res.redirect(redirectAddr);
   }
   */
-  
+
   client.query("select * from admin where username = 'administrator'", (err, res) => {
     if(err) throw err;
     var new_username = res.rows[0].username;
@@ -280,7 +280,7 @@ app.post('/login', function(req, web_res, next) {
     } else {
       web_res.redirect('/login?valid=failed')
     }
-	
+
     client.end();
   });
 });
@@ -289,6 +289,12 @@ app.post('/login', function(req, web_res, next) {
 // church finder
 app.get('/church-finder', function(req, res, next) {
   ssn = req.session;
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+  client.connect();
+  
   client.query('select * from church;', (err, res) => {
     if(err) throw err;
     web_res.render("church-finder", {
