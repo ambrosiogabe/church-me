@@ -24,7 +24,7 @@ function myMap() {
         map: map,
         title: church.getAttribute("title")
       })
-      markers["" + church.church_id] = marker;
+      markers["" + church.id] = marker;
     }
 }
 
