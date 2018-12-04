@@ -41,6 +41,7 @@
     "jquery": "3.3.1",
     "jquery.easing": "^1.4.1",
     "memjs": "^1.2.0",
+    "nodemailer": "^4.7.0",
     "npm": "^6.4.1",
     "pg": "^7.6.0",
     "popper.js": "^1.14.3",

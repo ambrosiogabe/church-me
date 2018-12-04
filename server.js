@@ -3,6 +3,7 @@ const express = require('express');
 const { Client } = require('pg');
 const bodyParser = require("body-parser");
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 //const utils = require("./utils");
 
@@ -53,6 +54,50 @@ app.get('/', function(req, web_res, next) {
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
+  });
+
+  client.connect();
+
+  client.query('select * from church where (church.church_id in (select church_id from featured_churches));', (err, res) => {
+    if (err) throw err;
+    web_res.render("index", {
+      featured_churches: res.rows,
+      logged_in: ssn.logged_in
+    });
+
+    client.end();
+  });
+});
+
+app.post('/', function(req, web_res, next) {
+  ssn = req.session;
+
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
+
+  var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: 'churchme10@gmail.com',
+      pass: process.env.CHURCHME_PASS
+    }
+  });
+
+  var mailOptions = {
+    from: 'NO_REPLY@church-me.com',
+    to: 'ambrosiogabe@gmail.com',
+    subject: 'Message from ' + req.body.name + " email: " + req.body.email + " phone: " + req.body.phone,
+    text: req.body.message
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
   });
 
   client.connect();
