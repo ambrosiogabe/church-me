@@ -14,7 +14,8 @@ function myMap() {
 
     var churches = document.getElementsByClassName("church-entry");
 
-    for (var church in churches) {
+    for (var i = 0; i < churches.length; i++) {
+      var church = churches[i];
       var long = parseFloat(church.getAttribute("gps_long"));
       var lat = parseFloat(church.getAttribute("gps_lat"));
       console.log(long + " " + lat);
