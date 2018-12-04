@@ -16,9 +16,9 @@ function myMap() {
 
     for (var church in churches) {
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(churchEntry.gps_lat, churchEntry.gps_long),
+        position: new google.maps.LatLng(church.gps_lat, church.gps_long),
         map: map,
-        title: churchEntry.title
+        title: church.title
       })
       markers.push(marker);
     }
