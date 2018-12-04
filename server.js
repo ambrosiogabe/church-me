@@ -90,7 +90,7 @@ app.post('/add_church', function(req, web_res, next) {
     if(err) throw err;
     console.log(count_res);
     var count = count_res.rows[0].id;
-    var query_string = "insert into church values (" count + ", '" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.address + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "', '" + req.body.church.link + "' )";
+    var query_string = "insert into church values (" + count + ", '" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.address + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "', '" + req.body.church.link + "' )";
     client.query(query_string, (err, res) => {
       if(err) throw err;
       web_res.redirect('/edit_churches?valid=added');
