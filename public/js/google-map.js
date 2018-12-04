@@ -2,7 +2,7 @@
 // icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
 
 var map = null;
-markers = []
+markers = {}
 
 function myMap() {
     var mapOptions = {
@@ -24,7 +24,7 @@ function myMap() {
         map: map,
         title: church.getAttribute("title")
       })
-      markers.push(marker);
+      markers["" + church.church_id] = marker;
     }
 }
 
