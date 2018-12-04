@@ -84,7 +84,7 @@ app.post('/', function(req, web_res, next) {
       pass: process.env.CHURCHME_PASS
     }
   });
-
+  console.log(process.env.CHURCHME_PASS)
   var mailOptions = {
     from: 'churchme10@gmail.com',
     to: 'ambrosiogabe@gmail.com',
