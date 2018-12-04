@@ -15,6 +15,7 @@ function myMap() {
     var churches = document.getElementsByClassName("church-entry");
 
     for (var church in churches) {
+      console.log(church.gps_lat + " " + church.gps_long);
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(church.gps_lat, church.gps_long),
         map: map,
