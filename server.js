@@ -313,7 +313,7 @@ app.post('/church-finder', function(req, web_res, next) {
   });
   client.connect();
 
-  client.query("select * from church where church_zip = '" + req.params.zip + "'", (err, res) => {
+  client.query("select * from church where church_zip = '" + req.body.zip + "'", (err, res) => {
     if(err) throw err;
     web_res.render("church-finder", {
       churches: res.rows,
