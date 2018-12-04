@@ -15,35 +15,41 @@ function myMap() {
     var churches = document.getElementsByClassName("church-entry");
 
     for (var church in churches) {
-      console.log(church.gps_lat + " " + church.gps_long);
+      var long = parseFloat(church.getAttribute("gps_long"));
+      var lat = parseFloat(church.getAttribute("gps_lat"));
+      console.log(long + " " + lat);
       var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(church.gps_lat, church.gps_long),
+        position: new google.maps.LatLng(lat, long),
         map: map,
-        title: church.title
+        title: church.getAttribute("title")
       })
       markers.push(marker);
     }
 }
 
 function mouseEnter(churchEntry) {
-  markers[churchEntry.id].setMap(null);
+  markers["" + churchEntry.id].setMap(null);
+  var long = parseFloat(churchEntry.getAttribute("gps_long"));
+  var lat = parseFloat(churchEntry.getAttribute("gps_lat"));
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(churchEntry.gps_lat, churchEntry.gps_long),
+    position: new google.maps.LatLng(lat, long),
     map: map,
-    title: churchEntry.title
+    title: churchEntry.getAttribute("title")
   });
 
-  markers[churchEntry.id] = marker;
+  markers["" + churchEntry.id] = marker;
 }
 
 function leaving(churchEntry) {
-  markers[churchEntry.id].setMap(null);
+  markers["" + churchEntry.id].setMap(null);
+  var long = parseFloat(churchEntry.getAttribute("gps_long"));
+  var lat = parseFloat(churchEntry.getAttribute("gps_lat"));
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(churchEntry.gps_lat, churchEntry.gps_long),
+    position: new google.maps.LatLng(lat, long),
     icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
     map: map,
-    title: churchEntry.title
+    title: churchEntry.getAttribute("title")
   });
 
-  markers[churchEntry.id] = marker;
+  markers["" + churchEntry.id] = marker;
 }
