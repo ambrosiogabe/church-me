@@ -63,12 +63,11 @@ html(lang="en")
           div(class="intro-text")
             div(class="intro-lead-in") Church-Me
             div(class="intro-heading text-uppercase") Nashville let us help you find a church!
-            form(action="")
+            <form method="post" action="/church-finder">
               div(class="main-search-bar-div")
-                <form method="post" action="/church-finder">
                   input(type="text" class="input-group main-search-bar" name="zip" placeholder="Eg. 37067" required)
                   input(type="submit" value="Submit ZIP Code" class="input-group-btn btn btn-primary btn-xl text-uppercase")
-                </form>
+            </form>
 
     // Portfolio-Grid
     section(class="bg-light" id="portfolio")
