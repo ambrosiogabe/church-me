@@ -86,7 +86,7 @@ app.post('/', function(req, web_res, next) {
   });
 
   var mailOptions = {
-    from: 'NO_REPLY@church-me.com',
+    from: 'churchme10@gmail.com',
     to: 'ambrosiogabe@gmail.com',
     subject: 'Message from ' + req.body.name + " email: " + req.body.email + " phone: " + req.body.phone,
     text: req.body.message
