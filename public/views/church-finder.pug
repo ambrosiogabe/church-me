@@ -78,10 +78,10 @@
           
           
           for church in churches
-            div(class="church-entry" onmouseenter="mouseEnter(this)" onmouseleave="leaving(this)" id=church.church_id gps_long=church.gps_long gps_lat=church.gps_lat title=church.church_name)
+            div(class="church-entry" onmouseenter="mouseEnter(this)" onmouseleave="leaving(this)" id=church.church_id gps_long=church.gps_long gps_lat=church.gps_lat title=church.church_name onclick="window.location='" + church.church_link + "';")
               div(class="data")
                 p(class="church-entry-title" id="church-name")=church.church_name
-                p(class="church-entry-address")=church.church_city + ", " + church.church_state + " " + church.church_zip
+                p(class="church-entry-address")=church.church_address + " " + church.church_city + ", " + church.church_state + " " + church.church_zip
               
               div(class="image")
                 img(class="church-entry-image" src=church.image_path alt="Image Not Found")

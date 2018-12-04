@@ -83,14 +83,14 @@ app.post('/add_church', function(req, web_res, next) {
     ssl: true,
   });
 
-  var query_string = "insert into church values ('" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "');";
+  var query_string = "insert into church values ('" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.address + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "', '" + req.body.church.link + "' );";
   client.connect();
 
   client.query("select (select count(*) from church) as id;", (err, count_res) => {
     if(err) throw err;
     console.log(count_res);
     var count = count_res.rows[0].id;
-    var query_string = "insert into church values (" + count + ", '" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "');";
+    var query_string = "insert into church values ('" + req.body.church.state + "', '" + req.body.church.zip + "', '" + req.body.church.city + "', '" + req.body.church.address + "', '" + req.body.church.name + "', '" + req.body.church.long + "', '" + req.body.church.lat + "', '" + req.body.church.video_link + "', '" + req.body.church.image_path + "', '" + req.body.church.link + "' );";
     client.query(query_string, (err, res) => {
       if(err) throw err;
       web_res.redirect('/edit_churches?valid=added');
@@ -203,8 +203,7 @@ app.post('/edit/church/:id', function(req, web_res, next) {
     ssl: true,
   });
 
-  var query_string = "update church set church_state = '" + req.body.church.state + "', church_zip = '" + req.body.church.zip + "', church_city = '" + req.body.church.city + "', church_name = '" + req.body.church.name + "', gps_long = '" + req.body.church.long + "', gps_lat = '" + req.body.church.lat + "', video_link = '" + req.body.church.video_link + "', image_path = '" + req.body.church.image_path + "' where church_id = " + req.params.id + ";";
-  console.log(query_string);
+  var query_string = "update church set church_state = '" + req.body.church.state + "', church_zip = '" + req.body.church.zip + "', church_city = '" + req.body.church.city + "', church_name = '" + req.body.church.name + "', gps_long = '" + req.body.church.long + "', gps_lat = '" + req.body.church.lat + "', video_link = '" + req.body.church.video_link + "', image_path = '" + req.body.church.image_path + "', church_address = '" + req.body.church.address + "', church_link = '" + req.body.church.link +  "' where church_id = " + req.params.id + ";";
   client.connect();
 
   client.query(query_string, (err, res) => {
