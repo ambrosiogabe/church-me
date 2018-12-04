@@ -87,7 +87,7 @@ app.post('/', function(req, web_res, next) {
   console.log(process.env.CHURCHME_PASS)
   var mailOptions = {
     from: 'churchme10@gmail.com',
-    to: 'ambrosiogabe@gmail.com',
+    to: 'bill77broadcast@gmail.com',
     subject: 'Message from ' + req.body.name + " email: " + req.body.email + " phone: " + req.body.phone,
     text: req.body.message
   };
