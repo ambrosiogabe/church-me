@@ -22,6 +22,7 @@ function myMap() {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
         map: map,
+        icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
         title: church.getAttribute("title")
       })
       markers["" + church.id] = marker;
