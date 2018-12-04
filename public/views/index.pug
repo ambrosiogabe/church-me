@@ -66,8 +66,10 @@ html(lang="en")
             div(class="intro-heading text-uppercase") Nashville let us help you find a church!
             form(action="")
               div(class="main-search-bar-div")
-                input(type="text" class="input-group main-search-bar")
-              input(class="input-group-btn btn btn-primary btn-xl text-uppercase" value="Submit ZIP Code" onclick="location.href = '/church-finder';")
+              form(method="post" action="/church-finder")
+                input(type="text" class="input-group main-search-bar" name="zip" placeholder="Eg. 37067" required)
+                input(class="input-group-btn btn btn-primary btn-xl text-uppercase" value="Submit ZIP Code")
+                  input(type="submit" value="")
 
     // Portfolio-Grid
     section(class="bg-light" id="portfolio")

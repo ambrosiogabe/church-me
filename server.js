@@ -305,6 +305,25 @@ app.get('/church-finder', function(req, web_res, next) {
   });
 })
 
+app.post('/church-finder', function(req, web_res, next) {
+  ssn = req.session;
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+  });
+  client.connect();
+
+  client.query("select * from church where church_zip = '" + req.params.zip + "'", (err, res) => {
+    if(err) throw err;
+    web_res.render("church-finder", {
+      churches: res.rows,
+      logged_in: ssn.logged_in
+    });
+
+    client.end();
+  });
+})
+
 // listener
 app.listen(port, () => {
   console.log(`Server now running at http://${process.env.HOST}:${port}/`);
